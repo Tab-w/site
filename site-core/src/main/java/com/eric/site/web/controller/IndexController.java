@@ -17,4 +17,5 @@ public class IndexController extends BaseController {
         model.addAttribute("index", "index");
         return "index";
     }
+
 }
