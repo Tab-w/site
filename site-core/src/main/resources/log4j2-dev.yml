@@ -1,0 +1,28 @@
+Configuration:
+  status: WARN #用于设置log4j2自身内部的信息输出,可以不设置,当设置成trace时,可以看到log4j2内部各种详细输出
+  monitorInterval: 3600 #自动刷新该配置文件的时间间隔(秒)
+  Properties: #自定义配置
+    Property:
+      - name: LOG_PATTERN
+        value: "%d{yyyy-MM-dd HH:mm:ss.SSS} |-%-5level [%thread] %c [%L] -| %msg%n"
+  Appenders:
+    Console:  #输出到控制台
+      name: CONSOLE
+      target: SYSTEM_OUT
+      ThresholdFilter:
+        level: TRACE
+        onMatch: ACCEPT
+        onMismatch: DENY
+      PatternLayout:
+        pattern: ${LOG_PATTERN}
+  Loggers:
+    Root:
+      level: INFO
+      AppenderRef:
+        - ref: CONSOLE
+    Logger:
+      - name: com.eric.site.dao #为com.eric.site.dao包配置特殊的Log级别,方便调试
+        additivity: FALSE #不在父类的输出源中输出
+        level: DEBUG
+        AppenderRef:
+          - ref: CONSOLE

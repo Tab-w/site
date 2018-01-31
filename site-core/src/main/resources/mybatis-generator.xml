@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="MysqlContext" targetRuntime="MyBatis3" defaultModelType="flat">
+
+        <!-- 生成的model实现Serializable借口 -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin">
+            <property name="suppressJavaInterface" value="false"/>
+        </plugin>
+
+        <!-- 自动生成equals方法和hashcode方法 -->
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+
+        <!-- 该插件给实体类添加toString() -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+
+        <!-- 自定义方法 -->
+        <plugin type="com.eric.site.config.mybatis.MapperPlugin">
+            <property name="targetProject" value="src/main/java"/>
+            <property name="targetPackage" value="com.eric.site.web.dao"/>
+        </plugin>
+
+        <!--关闭注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!--数据库连接信息 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://10.0.41.102:3306/saashr_wxy_100?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false" userId="admin_wangxy" password="123qweasdzxc">
+        </jdbcConnection>
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false" userId="root" password="root">-->
+        <!--</jdbcConnection>-->
+        <!--生成的entity 包路径 -->
+        <javaModelGenerator targetPackage="com.eric.site.web.entity" targetProject="src/main/java">
+            <property name="enableSubPackages" value="ture"/>
+            <property name="trimStrings" value="true"/>
+            <property name="rootClass" value="com.eric.site.web.entity.BaseEntity"/>
+        </javaModelGenerator>
+
+        <!--生成xml mapper文件 路径 -->
+        <sqlMapGenerator targetPackage="com.eric.site.web.mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="ture"/>
+        </sqlMapGenerator>
+
+        <!-- type="ANNOTATEDMAPPER",生成基于注解的Mapper接口
+                type="MIXEDMAPPER",生成最小的基于注解的Mapper接口
+                type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.eric.site.web.dao" targetProject="src/main/java">
+            <property name="enableSubPackages" value="ture"/>
+            <property name="rootInterface" value="com.eric.site.web.dao.BaseMapper"/>
+        </javaClientGenerator>
+        <!--对应数据库表名 -->
+        <table tableName="sec_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <!--<table tableName="user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>-->
+    </context>
+</generatorConfiguration>
