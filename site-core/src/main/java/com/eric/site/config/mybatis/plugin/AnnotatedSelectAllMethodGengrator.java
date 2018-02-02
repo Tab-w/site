@@ -28,6 +28,7 @@ public class AnnotatedSelectAllMethodGengrator extends SelectAllMethodGengrator 
 
     @Override
     public void addMapperAnnotations(Interface interfaze, Method method) {
+
         interfaze.addImportedType(new FullyQualifiedJavaType("org.apache.ibatis.annotations.Select"));
 
         StringBuilder sb = new StringBuilder();
@@ -71,12 +72,10 @@ public class AnnotatedSelectAllMethodGengrator extends SelectAllMethodGengrator 
         sb.append(escapeStringForJava(introspectedTable.getAliasedFullyQualifiedTableNameAtRuntime()));
         sb.append("\"");
         method.addAnnotation(sb.toString());
-
         method.addAnnotation("})");
 
         if (useResultMapIfAvailable) {
-            if (introspectedTable.getRules().generateBaseResultMap()
-                    || introspectedTable.getRules().generateResultMapWithBLOBs()) {
+            if (introspectedTable.getRules().generateBaseResultMap() || introspectedTable.getRules().generateResultMapWithBLOBs()) {
                 addResultMapAnnotation(interfaze, method);
             } else {
                 addAnnotatedResults(interfaze, method);
@@ -89,7 +88,7 @@ public class AnnotatedSelectAllMethodGengrator extends SelectAllMethodGengrator 
     private void addResultMapAnnotation(Interface interfaze, Method method) {
         interfaze.addImportedType(new FullyQualifiedJavaType("org.apache.ibatis.annotations.ResultMap"));
 
-        String annotation = String.format("@ResultMap(\"%s\")", introspectedTable.getBaseRecordType());
+        String annotation = String.format("@ResultMap(\"%s\")", introspectedTable.getBaseRecordType().substring(introspectedTable.getBaseRecordType().lastIndexOf(".") + 1).toLowerCase());
         method.addAnnotation(annotation);
     }
 
@@ -113,13 +112,11 @@ public class AnnotatedSelectAllMethodGengrator extends SelectAllMethodGengrator 
             IntrospectedColumn introspectedColumn = iterPk.next();
             sb.setLength(0);
             javaIndent(sb, 1);
-            sb.append(getResultAnnotation(interfaze, introspectedColumn, true,
-                    introspectedTable.isConstructorBased()));
+            sb.append(getResultAnnotation(interfaze, introspectedColumn, true, introspectedTable.isConstructorBased()));
 
             if (iterPk.hasNext() || iterNonPk.hasNext()) {
                 sb.append(',');
             }
-
             method.addAnnotation(sb.toString());
         }
 
@@ -127,16 +124,13 @@ public class AnnotatedSelectAllMethodGengrator extends SelectAllMethodGengrator 
             IntrospectedColumn introspectedColumn = iterNonPk.next();
             sb.setLength(0);
             javaIndent(sb, 1);
-            sb.append(getResultAnnotation(interfaze, introspectedColumn, false,
-                    introspectedTable.isConstructorBased()));
+            sb.append(getResultAnnotation(interfaze, introspectedColumn, false, introspectedTable.isConstructorBased()));
 
             if (iterNonPk.hasNext()) {
                 sb.append(',');
             }
-
             method.addAnnotation(sb.toString());
         }
-
         method.addAnnotation("})");
     }
 }

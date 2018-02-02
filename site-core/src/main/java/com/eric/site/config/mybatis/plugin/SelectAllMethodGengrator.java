@@ -26,16 +26,14 @@ public class SelectAllMethodGengrator extends AbstractJavaMapperMethodGenerator 
         Method method = new Method();
         method.setVisibility(JavaVisibility.PUBLIC);
 
-        FullyQualifiedJavaType returnType = introspectedTable.getRules()
-                .calculateAllFieldsClass();
+        FullyQualifiedJavaType returnType = introspectedTable.getRules().calculateAllFieldsClass();
         method.setReturnType(returnType);
         importedTypes.add(returnType);
 
         method.setName(introspectedTable.getSelectByPrimaryKeyStatementId());
 
         if (!isSimple && introspectedTable.getRules().generatePrimaryKeyClass()) {
-            FullyQualifiedJavaType type = new FullyQualifiedJavaType(
-                    introspectedTable.getPrimaryKeyType());
+            FullyQualifiedJavaType type = new FullyQualifiedJavaType(introspectedTable.getPrimaryKeyType());
             importedTypes.add(type);
             method.addParameter(new Parameter(type, "key"));
         } else {
@@ -43,19 +41,16 @@ public class SelectAllMethodGengrator extends AbstractJavaMapperMethodGenerator 
             // if more than one PK field, then we need to annotate the
             // parameters
             // for MyBatis3
-            List<IntrospectedColumn> introspectedColumns = introspectedTable
-                    .getPrimaryKeyColumns();
+            List<IntrospectedColumn> introspectedColumns = introspectedTable.getPrimaryKeyColumns();
             boolean annotate = introspectedColumns.size() > 1;
             if (annotate) {
                 importedTypes.add(new FullyQualifiedJavaType("org.apache.ibatis.annotations.Param"));
             }
             StringBuilder sb = new StringBuilder();
             for (IntrospectedColumn introspectedColumn : introspectedColumns) {
-                FullyQualifiedJavaType type = introspectedColumn
-                        .getFullyQualifiedJavaType();
+                FullyQualifiedJavaType type = introspectedColumn.getFullyQualifiedJavaType();
                 importedTypes.add(type);
-                Parameter parameter = new Parameter(type, introspectedColumn
-                        .getJavaProperty());
+                Parameter parameter = new Parameter(type, introspectedColumn.getJavaProperty());
                 if (annotate) {
                     sb.setLength(0);
                     sb.append("@Param(\"");
@@ -69,11 +64,9 @@ public class SelectAllMethodGengrator extends AbstractJavaMapperMethodGenerator 
 
         addMapperAnnotations(interfaze, method);
 
-        context.getCommentGenerator().addGeneralMethodComment(method,
-                introspectedTable);
+        context.getCommentGenerator().addGeneralMethodComment(method, introspectedTable);
 
-        if (context.getPlugins().clientSelectByPrimaryKeyMethodGenerated(
-                method, interfaze, introspectedTable)) {
+        if (context.getPlugins().clientSelectByPrimaryKeyMethodGenerated(method, interfaze, introspectedTable)) {
             interfaze.addImportedTypes(importedTypes);
             interfaze.addMethod(method);
         }
