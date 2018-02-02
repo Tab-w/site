@@ -6,7 +6,6 @@ package com.eric.site.web.entity;
  */
 public class BaseEntity {
     private Integer id;
-
     public Integer getId() {
         return id;
     }

@@ -2,10 +2,6 @@ package com.eric.site.web.entity;
 
 import java.io.Serializable;
 
-/**
- * @author WangXingYu
- * @date 2018-01-31
- */
 public class User extends BaseEntity implements Serializable {
     private String address;
 
@@ -262,30 +258,30 @@ public class User extends BaseEntity implements Serializable {
         }
         User other = (User) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-                && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
-                && (this.getAge() == null ? other.getAge() == null : this.getAge().equals(other.getAge()))
-                && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
-                && (this.getEnabled() == null ? other.getEnabled() == null : this.getEnabled().equals(other.getEnabled()))
-                && (this.getFullname() == null ? other.getFullname() == null : this.getFullname().equals(other.getFullname()))
-                && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
-                && (this.getPlainpassword() == null ? other.getPlainpassword() == null : this.getPlainpassword().equals(other.getPlainpassword()))
-                && (this.getSalt() == null ? other.getSalt() == null : this.getSalt().equals(other.getSalt()))
-                && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
-                && (this.getFid() == null ? other.getFid() == null : this.getFid().equals(other.getFid()))
-                && (this.getType() == null ? other.getType() == null : this.getType().equals(other.getType()))
-                && (this.getUsername() == null ? other.getUsername() == null : this.getUsername().equals(other.getUsername()))
-                && (this.getOrg() == null ? other.getOrg() == null : this.getOrg().equals(other.getOrg()))
-                && (this.getUserMobile() == null ? other.getUserMobile() == null : this.getUserMobile().equals(other.getUserMobile()))
-                && (this.getTid() == null ? other.getTid() == null : this.getTid().equals(other.getTid()))
-                && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
-                && (this.getCreateUser() == null ? other.getCreateUser() == null : this.getCreateUser().equals(other.getCreateUser()))
-                && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-                && (this.getmNumber() == null ? other.getmNumber() == null : this.getmNumber().equals(other.getmNumber()))
-                && (this.getPwdvalid() == null ? other.getPwdvalid() == null : this.getPwdvalid().equals(other.getPwdvalid()))
-                && (this.getDefPwd() == null ? other.getDefPwd() == null : this.getDefPwd().equals(other.getDefPwd()))
-                && (this.getStartMenuId() == null ? other.getStartMenuId() == null : this.getStartMenuId().equals(other.getStartMenuId()))
-                && (this.getPwdupdatetime() == null ? other.getPwdupdatetime() == null : this.getPwdupdatetime().equals(other.getPwdupdatetime()))
-                && (this.getPersonId() == null ? other.getPersonId() == null : this.getPersonId().equals(other.getPersonId()));
+            && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
+            && (this.getAge() == null ? other.getAge() == null : this.getAge().equals(other.getAge()))
+            && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
+            && (this.getEnabled() == null ? other.getEnabled() == null : this.getEnabled().equals(other.getEnabled()))
+            && (this.getFullname() == null ? other.getFullname() == null : this.getFullname().equals(other.getFullname()))
+            && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
+            && (this.getPlainpassword() == null ? other.getPlainpassword() == null : this.getPlainpassword().equals(other.getPlainpassword()))
+            && (this.getSalt() == null ? other.getSalt() == null : this.getSalt().equals(other.getSalt()))
+            && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
+            && (this.getFid() == null ? other.getFid() == null : this.getFid().equals(other.getFid()))
+            && (this.getType() == null ? other.getType() == null : this.getType().equals(other.getType()))
+            && (this.getUsername() == null ? other.getUsername() == null : this.getUsername().equals(other.getUsername()))
+            && (this.getOrg() == null ? other.getOrg() == null : this.getOrg().equals(other.getOrg()))
+            && (this.getUserMobile() == null ? other.getUserMobile() == null : this.getUserMobile().equals(other.getUserMobile()))
+            && (this.getTid() == null ? other.getTid() == null : this.getTid().equals(other.getTid()))
+            && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
+            && (this.getCreateUser() == null ? other.getCreateUser() == null : this.getCreateUser().equals(other.getCreateUser()))
+            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
+            && (this.getmNumber() == null ? other.getmNumber() == null : this.getmNumber().equals(other.getmNumber()))
+            && (this.getPwdvalid() == null ? other.getPwdvalid() == null : this.getPwdvalid().equals(other.getPwdvalid()))
+            && (this.getDefPwd() == null ? other.getDefPwd() == null : this.getDefPwd().equals(other.getDefPwd()))
+            && (this.getStartMenuId() == null ? other.getStartMenuId() == null : this.getStartMenuId().equals(other.getStartMenuId()))
+            && (this.getPwdupdatetime() == null ? other.getPwdupdatetime() == null : this.getPwdupdatetime().equals(other.getPwdupdatetime()))
+            && (this.getPersonId() == null ? other.getPersonId() == null : this.getPersonId().equals(other.getPersonId()));
     }
 
     @Override

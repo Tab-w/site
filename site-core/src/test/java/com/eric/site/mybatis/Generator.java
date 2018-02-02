@@ -32,7 +32,6 @@ public class Generator {
         configFile = ResourceUtils.getFile("classpath:mybatis-generator.xml");
     }
 
-    @Ignore
     @Test
     public void generate() throws Exception {
         List<String> warnings = new ArrayList<>();
