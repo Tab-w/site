@@ -48,12 +48,11 @@ public class MapperPlugin extends PluginAdapter {
                         Method method = new Method();
                         //设置访问权限
                         method.setVisibility(JavaVisibility.PUBLIC);
-                        //设置方法名称
-                        method.setName("selectAll");
                         //设置返回类型
-
                         FullyQualifiedJavaType returnFullyQualifiedJavaType = new FullyQualifiedJavaType(String.format("List<%s>", introspectedTable.getBaseRecordType()));
                         method.setReturnType(returnFullyQualifiedJavaType);
+                        //设置方法名称
+                        method.setName("selectAll");
                         //设置注解
                         AnnotatedSelectAllMethodGengrator annotatedSelectAllMethodGengrator = new AnnotatedSelectAllMethodGengrator(introspectedTable, false, false);
                         annotatedSelectAllMethodGengrator.addMapperAnnotations(((Interface) unit), method);

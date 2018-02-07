@@ -44,13 +44,8 @@ public class TestMybatis {
     public void testPage() {
         PageHelper.startPage(1, 10);
         List<User> userList1 = userService.selectAll();
-        for (User user : userList1) {
-            System.out.println(user.getFullname());
-        }
-        PageHelper.startPage(2, 10);
-        List<User> userList2 = userService.selectAll();
-        for (User user : userList2) {
-            System.out.println(user.getFullname());
+        for (User u : userList1) {
+            System.out.println(u.getFullname());
         }
     }
 }

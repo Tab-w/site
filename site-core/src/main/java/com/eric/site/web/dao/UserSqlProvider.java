@@ -33,8 +33,8 @@ public class UserSqlProvider {
             sql.VALUES("password", "#{password,jdbcType=VARCHAR}");
         }
         
-        if (record.getPlainpassword() != null) {
-            sql.VALUES("plainPassword", "#{plainpassword,jdbcType=VARCHAR}");
+        if (record.getPlainPassword() != null) {
+            sql.VALUES("plainPassword", "#{plainPassword,jdbcType=VARCHAR}");
         }
         
         if (record.getSalt() != null) {
@@ -61,8 +61,8 @@ public class UserSqlProvider {
             sql.VALUES("org", "#{org,jdbcType=INTEGER}");
         }
         
-        if (record.getUserMobile() != null) {
-            sql.VALUES("user_mobile", "#{userMobile,jdbcType=VARCHAR}");
+        if (record.getUser_mobile() != null) {
+            sql.VALUES("user_mobile", "#{user_mobile,jdbcType=VARCHAR}");
         }
         
         if (record.getTid() != null) {
@@ -73,36 +73,36 @@ public class UserSqlProvider {
             sql.VALUES("remark", "#{remark,jdbcType=VARCHAR}");
         }
         
-        if (record.getCreateUser() != null) {
-            sql.VALUES("create_user", "#{createUser,jdbcType=INTEGER}");
+        if (record.getCreate_user() != null) {
+            sql.VALUES("create_user", "#{create_user,jdbcType=INTEGER}");
         }
         
-        if (record.getCreateTime() != null) {
-            sql.VALUES("create_time", "#{createTime,jdbcType=VARCHAR}");
+        if (record.getCreate_time() != null) {
+            sql.VALUES("create_time", "#{create_time,jdbcType=VARCHAR}");
         }
         
-        if (record.getmNumber() != null) {
-            sql.VALUES("m_number", "#{mNumber,jdbcType=VARCHAR}");
+        if (record.getM_number() != null) {
+            sql.VALUES("m_number", "#{m_number,jdbcType=VARCHAR}");
         }
         
         if (record.getPwdvalid() != null) {
             sql.VALUES("pwdvalid", "#{pwdvalid,jdbcType=VARCHAR}");
         }
         
-        if (record.getDefPwd() != null) {
-            sql.VALUES("def_pwd", "#{defPwd,jdbcType=VARCHAR}");
+        if (record.getDef_pwd() != null) {
+            sql.VALUES("def_pwd", "#{def_pwd,jdbcType=VARCHAR}");
         }
         
-        if (record.getStartMenuId() != null) {
-            sql.VALUES("start_menu_id", "#{startMenuId,jdbcType=INTEGER}");
+        if (record.getStart_menu_id() != null) {
+            sql.VALUES("start_menu_id", "#{start_menu_id,jdbcType=INTEGER}");
         }
         
         if (record.getPwdupdatetime() != null) {
             sql.VALUES("pwdupdatetime", "#{pwdupdatetime,jdbcType=VARCHAR}");
         }
         
-        if (record.getPersonId() != null) {
-            sql.VALUES("person_id", "#{personId,jdbcType=INTEGER}");
+        if (record.getPerson_id() != null) {
+            sql.VALUES("person_id", "#{person_id,jdbcType=INTEGER}");
         }
         
         return sql.toString();
@@ -136,8 +136,8 @@ public class UserSqlProvider {
             sql.SET("password = #{password,jdbcType=VARCHAR}");
         }
         
-        if (record.getPlainpassword() != null) {
-            sql.SET("plainPassword = #{plainpassword,jdbcType=VARCHAR}");
+        if (record.getPlainPassword() != null) {
+            sql.SET("plainPassword = #{plainPassword,jdbcType=VARCHAR}");
         }
         
         if (record.getSalt() != null) {
@@ -164,8 +164,8 @@ public class UserSqlProvider {
             sql.SET("org = #{org,jdbcType=INTEGER}");
         }
         
-        if (record.getUserMobile() != null) {
-            sql.SET("user_mobile = #{userMobile,jdbcType=VARCHAR}");
+        if (record.getUser_mobile() != null) {
+            sql.SET("user_mobile = #{user_mobile,jdbcType=VARCHAR}");
         }
         
         if (record.getTid() != null) {
@@ -176,36 +176,36 @@ public class UserSqlProvider {
             sql.SET("remark = #{remark,jdbcType=VARCHAR}");
         }
         
-        if (record.getCreateUser() != null) {
-            sql.SET("create_user = #{createUser,jdbcType=INTEGER}");
+        if (record.getCreate_user() != null) {
+            sql.SET("create_user = #{create_user,jdbcType=INTEGER}");
         }
         
-        if (record.getCreateTime() != null) {
-            sql.SET("create_time = #{createTime,jdbcType=VARCHAR}");
+        if (record.getCreate_time() != null) {
+            sql.SET("create_time = #{create_time,jdbcType=VARCHAR}");
         }
         
-        if (record.getmNumber() != null) {
-            sql.SET("m_number = #{mNumber,jdbcType=VARCHAR}");
+        if (record.getM_number() != null) {
+            sql.SET("m_number = #{m_number,jdbcType=VARCHAR}");
         }
         
         if (record.getPwdvalid() != null) {
             sql.SET("pwdvalid = #{pwdvalid,jdbcType=VARCHAR}");
         }
         
-        if (record.getDefPwd() != null) {
-            sql.SET("def_pwd = #{defPwd,jdbcType=VARCHAR}");
+        if (record.getDef_pwd() != null) {
+            sql.SET("def_pwd = #{def_pwd,jdbcType=VARCHAR}");
         }
         
-        if (record.getStartMenuId() != null) {
-            sql.SET("start_menu_id = #{startMenuId,jdbcType=INTEGER}");
+        if (record.getStart_menu_id() != null) {
+            sql.SET("start_menu_id = #{start_menu_id,jdbcType=INTEGER}");
         }
         
         if (record.getPwdupdatetime() != null) {
             sql.SET("pwdupdatetime = #{pwdupdatetime,jdbcType=VARCHAR}");
         }
         
-        if (record.getPersonId() != null) {
-            sql.SET("person_id = #{personId,jdbcType=INTEGER}");
+        if (record.getPerson_id() != null) {
+            sql.SET("person_id = #{person_id,jdbcType=INTEGER}");
         }
         
         sql.WHERE("id = #{id,jdbcType=INTEGER}");

@@ -66,7 +66,7 @@ Configuration:
         - ref: ROLLING_FILE
         - ref: ROLLING_FILE_ERROR
     Logger:
-      - name: com.eric.site.dao #为com.eric.site.dao包配置特殊的Log级别,方便调试
+      - name: com.eric.site.web.dao #为com.eric.site.dao包配置特殊的Log级别,方便调试
         additivity: FALSE #不在父类的输出源中输出
         level: DEBUG
         AppenderRef:

@@ -52,6 +52,8 @@
         </javaClientGenerator>
         <!--对应数据库表名 -->
         <table tableName="sec_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--生成与数据库一致的属性-->
+            <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
         <!--<table tableName="user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>-->
