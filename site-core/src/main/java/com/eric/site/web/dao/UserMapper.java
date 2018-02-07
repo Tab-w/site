@@ -1,19 +1,29 @@
 package com.eric.site.web.dao;
 
 import com.eric.site.web.entity.User;
+import com.eric.site.web.entity.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.DeleteProvider;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.InsertProvider;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
+import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.UpdateProvider;
 import org.apache.ibatis.type.JdbcType;
 
 public interface UserMapper {
+    @SelectProvider(type=UserSqlProvider.class, method="countByExample")
+    long countByExample(UserExample example);
+
+    @DeleteProvider(type=UserSqlProvider.class, method="deleteByExample")
+    int deleteByExample(UserExample example);
+
     @Delete({
         "delete from sec_user",
         "where id = #{id,jdbcType=INTEGER}"
@@ -51,6 +61,36 @@ public interface UserMapper {
     @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Integer.class)
     int insertSelective(User record);
 
+    @SelectProvider(type=UserSqlProvider.class, method="selectByExample")
+    @Results({
+        @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
+        @Result(column="address", property="address", jdbcType=JdbcType.VARCHAR),
+        @Result(column="age", property="age", jdbcType=JdbcType.INTEGER),
+        @Result(column="email", property="email", jdbcType=JdbcType.VARCHAR),
+        @Result(column="enabled", property="enabled", jdbcType=JdbcType.VARCHAR),
+        @Result(column="fullname", property="fullname", jdbcType=JdbcType.VARCHAR),
+        @Result(column="password", property="password", jdbcType=JdbcType.VARCHAR),
+        @Result(column="plainPassword", property="plainPassword", jdbcType=JdbcType.VARCHAR),
+        @Result(column="salt", property="salt", jdbcType=JdbcType.VARCHAR),
+        @Result(column="sex", property="sex", jdbcType=JdbcType.VARCHAR),
+        @Result(column="fid", property="fid", jdbcType=JdbcType.INTEGER),
+        @Result(column="type", property="type", jdbcType=JdbcType.INTEGER),
+        @Result(column="username", property="username", jdbcType=JdbcType.VARCHAR),
+        @Result(column="org", property="org", jdbcType=JdbcType.INTEGER),
+        @Result(column="user_mobile", property="user_mobile", jdbcType=JdbcType.VARCHAR),
+        @Result(column="tid", property="tid", jdbcType=JdbcType.VARCHAR),
+        @Result(column="remark", property="remark", jdbcType=JdbcType.VARCHAR),
+        @Result(column="create_user", property="create_user", jdbcType=JdbcType.INTEGER),
+        @Result(column="create_time", property="create_time", jdbcType=JdbcType.VARCHAR),
+        @Result(column="m_number", property="m_number", jdbcType=JdbcType.VARCHAR),
+        @Result(column="pwdvalid", property="pwdvalid", jdbcType=JdbcType.VARCHAR),
+        @Result(column="def_pwd", property="def_pwd", jdbcType=JdbcType.VARCHAR),
+        @Result(column="start_menu_id", property="start_menu_id", jdbcType=JdbcType.INTEGER),
+        @Result(column="pwdupdatetime", property="pwdupdatetime", jdbcType=JdbcType.VARCHAR),
+        @Result(column="person_id", property="person_id", jdbcType=JdbcType.INTEGER)
+    })
+    List<User> selectByExample(UserExample example);
+
     @Select({
         "select",
         "id, address, age, email, enabled, fullname, password, plainPassword, salt, sex, ",
@@ -87,6 +127,12 @@ public interface UserMapper {
         @Result(column="person_id", property="person_id", jdbcType=JdbcType.INTEGER)
     })
     User selectByPrimaryKey(Integer id);
+
+    @UpdateProvider(type=UserSqlProvider.class, method="updateByExampleSelective")
+    int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
+
+    @UpdateProvider(type=UserSqlProvider.class, method="updateByExample")
+    int updateByExample(@Param("record") User record, @Param("example") UserExample example);
 
     @UpdateProvider(type=UserSqlProvider.class, method="updateByPrimaryKeySelective")
     int updateByPrimaryKeySelective(User record);

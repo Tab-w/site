@@ -53,13 +53,16 @@ public class TransactionAspect {
         txMap.put("add*", requiredTx);
         txMap.put("save*", requiredTx);
         txMap.put("insert*", requiredTx);
+        txMap.put("append*", requiredTx);
         txMap.put("update*", requiredTx);
         txMap.put("delete*", requiredTx);
         txMap.put("remove*", requiredTx);
+        txMap.put("cancel*", requiredTx);
         txMap.put("get*", readOnlyTx);
         txMap.put("query*", readOnlyTx);
         txMap.put("select*", readOnlyTx);
         txMap.put("find*", readOnlyTx);
+        txMap.put("list*", readOnlyTx);
         source.setNameMap(txMap);
         return new TransactionInterceptor(transactionManager, source);
     }

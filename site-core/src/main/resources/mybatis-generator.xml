@@ -35,7 +35,7 @@
         <javaModelGenerator targetPackage="com.eric.site.web.entity" targetProject="src/main/java">
             <property name="enableSubPackages" value="ture"/>
             <property name="trimStrings" value="true"/>
-            <property name="rootClass" value="com.eric.site.web.entity.BaseEntity"/>
+            <property name="rootClass" value="com.eric.site.web.base.BaseEntity"/>
         </javaModelGenerator>
 
         <!--生成xml mapper文件 路径 -->
@@ -51,11 +51,15 @@
             <!--<property name="rootInterface" value=""/>-->
         </javaClientGenerator>
         <!--对应数据库表名 -->
-        <table tableName="sec_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        <!--<table tableName="sec_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+            <!--&lt;!&ndash;生成与数据库一致的属性&ndash;&gt;-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <table tableName="sec_user" domainObjectName="User">
             <!--生成与数据库一致的属性-->
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <!--<table tableName="user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>-->
     </context>
 </generatorConfiguration>

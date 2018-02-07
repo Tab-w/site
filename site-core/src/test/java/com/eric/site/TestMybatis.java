@@ -1,6 +1,7 @@
 package com.eric.site;
 
 import com.eric.site.web.entity.User;
+import com.eric.site.web.entity.UserExample;
 import com.eric.site.web.service.UserServiceImpl;
 import com.github.pagehelper.PageHelper;
 import org.junit.Assert;
@@ -47,5 +48,9 @@ public class TestMybatis {
         for (User u : userList1) {
             System.out.println(u.getFullname());
         }
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andIdGreaterThan(1000);
+        List<User> userList2 = userService.selectByExample(userExample);
+        System.out.println(userList2.size());
     }
 }

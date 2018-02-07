@@ -1,4 +1,4 @@
-package com.eric.site.web.entity;
+package com.eric.site.web.base;
 
 /**
  * @author WangXingYu
@@ -6,6 +6,7 @@ package com.eric.site.web.entity;
  */
 public class BaseEntity {
     private Integer id;
+
     public Integer getId() {
         return id;
     }
