@@ -1,5 +1,6 @@
 package com.eric.site.web.controller;
 
+import com.eric.site.web.base.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,5 +18,4 @@ public class IndexController extends BaseController {
         model.addAttribute("index", "index");
         return "index";
     }
-
 }

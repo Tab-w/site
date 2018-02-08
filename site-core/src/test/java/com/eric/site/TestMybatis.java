@@ -23,34 +23,33 @@ import java.util.Random;
 public class TestMybatis {
 
     @Autowired
-    private UserServiceImpl userService;
+    private UserServiceImpl userServiceImpl;
 
     @Test
     public void testCURD() {
         User user = new User();
         Random random = new Random();
         user.setUsername(random.nextInt() + "");
-        user.setAddress("wangxy");
-        int count = userService.insert(user);
+        int count = userServiceImpl.insert(user);
         Assert.assertEquals(count, 1);
         user.setAge(20);
-        userService.updateByPrimaryKey(user);
-        int age = userService.selectByPrimaryKey(user.getId()).getAge();
+        userServiceImpl.updateByPrimaryKey(user);
+        int age = userServiceImpl.selectByPrimaryKey(user.getId()).getAge();
         Assert.assertEquals(age, 20);
-        count = userService.deleteByPrimaryKey(user.getId());
+        count = userServiceImpl.deleteByPrimaryKey(user.getId());
         Assert.assertEquals(count, 1);
     }
 
     @Test
     public void testPage() {
         PageHelper.startPage(1, 10);
-        List<User> userList1 = userService.selectAll();
+        List<User> userList1 = userServiceImpl.selectAll();
         for (User u : userList1) {
             System.out.println(u.getFullname());
         }
         UserExample userExample = new UserExample();
         userExample.createCriteria().andIdGreaterThan(1000);
-        List<User> userList2 = userService.selectByExample(userExample);
-        System.out.println(userList2.size());
+        List<User> userList2 = userServiceImpl.selectByExample(userExample);
+        Assert.assertNotNull(userList2);
     }
 }

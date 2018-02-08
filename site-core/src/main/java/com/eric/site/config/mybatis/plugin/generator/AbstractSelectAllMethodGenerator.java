@@ -1,4 +1,4 @@
-package com.eric.site.config.mybatis.plugin;
+package com.eric.site.config.mybatis.plugin.generator;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.dom.java.*;
@@ -12,10 +12,10 @@ import java.util.TreeSet;
  * @author WangXingYu
  * @date 2018-02-02
  */
-public class SelectAllMethodGengrator extends AbstractJavaMapperMethodGenerator {
+public abstract class AbstractSelectAllMethodGenerator extends AbstractJavaMapperMethodGenerator {
     private boolean isSimple;
 
-    SelectAllMethodGengrator(boolean isSimple) {
+    AbstractSelectAllMethodGenerator(boolean isSimple) {
         super();
         this.isSimple = isSimple;
     }
@@ -29,7 +29,6 @@ public class SelectAllMethodGengrator extends AbstractJavaMapperMethodGenerator 
         FullyQualifiedJavaType returnType = introspectedTable.getRules().calculateAllFieldsClass();
         method.setReturnType(returnType);
         importedTypes.add(returnType);
-
         method.setName(introspectedTable.getSelectByPrimaryKeyStatementId());
 
         if (!isSimple && introspectedTable.getRules().generatePrimaryKeyClass()) {
@@ -37,10 +36,6 @@ public class SelectAllMethodGengrator extends AbstractJavaMapperMethodGenerator 
             importedTypes.add(type);
             method.addParameter(new Parameter(type, "key"));
         } else {
-            // no primary key class - fields are in the base class
-            // if more than one PK field, then we need to annotate the
-            // parameters
-            // for MyBatis3
             List<IntrospectedColumn> introspectedColumns = introspectedTable.getPrimaryKeyColumns();
             boolean annotate = introspectedColumns.size() > 1;
             if (annotate) {
@@ -72,6 +67,10 @@ public class SelectAllMethodGengrator extends AbstractJavaMapperMethodGenerator 
         }
     }
 
-    public void addMapperAnnotations(Interface interfaze, Method method) {
-    }
+    /**
+     * 添加mapper接口的注解
+     * @param interfaze mybatis的 Interface对象
+     * @param method Method方法对象
+     */
+    public abstract void addMapperAnnotations(Interface interfaze, Method method);
 }

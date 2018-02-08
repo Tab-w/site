@@ -51,11 +51,11 @@ public class DruidConfiguration {
         if (validationQuery != null && !"".equals(validationQuery)) {
             dataSource.setValidationQuery(validationQuery);
         }
-        dataSource.setTestWhileIdle(environment.getProperty("spring.datasource.testWhileIdle", Boolean.class));
-        dataSource.setTestOnBorrow(environment.getProperty("spring.datasource.testOnBorrow", Boolean.class));
-        dataSource.setTestOnReturn(environment.getProperty("spring.datasource.testOnReturn", Boolean.class));
+        dataSource.setTestWhileIdle(Boolean.parseBoolean(environment.getProperty("spring.datasource.testWhileIdle")));
+        dataSource.setTestOnBorrow(Boolean.parseBoolean(environment.getProperty("spring.datasource.testOnBorrow")));
+        dataSource.setTestOnReturn(Boolean.parseBoolean(environment.getProperty("spring.datasource.testOnReturn")));
 
-        boolean opened = environment.getProperty("spring.datasource.poolPreparedStatements", Boolean.class);
+        boolean opened = Boolean.parseBoolean(environment.getProperty("spring.datasource.poolPreparedStatements"));
         if (opened) {
             //打开PSCache，并且指定每个连接上PSCache的大小
             dataSource.setMaxPoolPreparedStatementPerConnectionSize(environment.getProperty("spring.datasource.maxPoolPreparedStatementPerConnectionSize", Integer.class));
@@ -78,7 +78,7 @@ public class DruidConfiguration {
             dataSource.setConnectProperties(connectProperties);
         }
         //合并多个DruidDataSource的监控数据
-        dataSource.setUseGlobalDataSourceStat(environment.getProperty("spring.datasource.useGlobalDataSourceStat", Boolean.class));
+        dataSource.setUseGlobalDataSourceStat(Boolean.parseBoolean(environment.getProperty("spring.datasource.useGlobalDataSourceStat")));
         return dataSource;
     }
 }

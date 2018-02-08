@@ -1,4 +1,4 @@
-package com.eric.site.config.mybatis.plugin;
+package com.eric.site.config.mybatis.plugin.generator;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
@@ -16,11 +16,11 @@ import static org.mybatis.generator.internal.util.StringUtility.escapeStringForJ
  * @author WangXingYu
  * @date 2018-02-02
  */
-public class AnnotatedSelectAllMethodGengrator extends SelectAllMethodGengrator {
+public class AnnotatedSelectAllMethodGenerator extends AbstractSelectAllMethodGenerator {
 
     private boolean useResultMapIfAvailable;
 
-    AnnotatedSelectAllMethodGengrator(IntrospectedTable introspectedTable, boolean useResultMapIfAvailable, boolean isSimple) {
+    public AnnotatedSelectAllMethodGenerator(IntrospectedTable introspectedTable, boolean useResultMapIfAvailable, boolean isSimple) {
         super(isSimple);
         this.useResultMapIfAvailable = useResultMapIfAvailable;
         this.introspectedTable = introspectedTable;
@@ -32,28 +32,28 @@ public class AnnotatedSelectAllMethodGengrator extends SelectAllMethodGengrator 
         interfaze.addImportedType(new FullyQualifiedJavaType("org.apache.ibatis.annotations.Select"));
 
         StringBuilder sb = new StringBuilder();
+
         method.addAnnotation("@Select({");
+
         javaIndent(sb, 1);
         sb.append("\"select\",");
         method.addAnnotation(sb.toString());
 
-        Iterator<IntrospectedColumn> iter = introspectedTable.getAllColumns().iterator();
+
         sb.setLength(0);
         javaIndent(sb, 1);
         sb.append('"');
         boolean hasColumns = false;
+        Iterator<IntrospectedColumn> iter = introspectedTable.getAllColumns().iterator();
         while (iter.hasNext()) {
             sb.append(escapeStringForJava(getSelectListPhrase(iter.next())));
             hasColumns = true;
-
             if (iter.hasNext()) {
                 sb.append(", ");
             }
-
             if (sb.length() > 80) {
                 sb.append("\",");
                 method.addAnnotation(sb.toString());
-
                 sb.setLength(0);
                 javaIndent(sb, 1);
                 sb.append('"');
@@ -72,6 +72,7 @@ public class AnnotatedSelectAllMethodGengrator extends SelectAllMethodGengrator 
         sb.append(escapeStringForJava(introspectedTable.getAliasedFullyQualifiedTableNameAtRuntime()));
         sb.append("\"");
         method.addAnnotation(sb.toString());
+
         method.addAnnotation("})");
 
         if (useResultMapIfAvailable) {

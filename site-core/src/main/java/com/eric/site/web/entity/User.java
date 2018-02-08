@@ -1,7 +1,6 @@
 package com.eric.site.web.entity;
 
 import com.eric.site.web.base.BaseEntity;
-
 import java.io.Serializable;
 
 public class User extends BaseEntity implements Serializable {

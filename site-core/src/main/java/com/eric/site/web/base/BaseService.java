@@ -1,6 +1,5 @@
 package com.eric.site.web.base;
 
-import com.eric.site.web.base.BaseEntity;
 import com.eric.site.web.entity.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;

@@ -16,8 +16,12 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements BaseService<User, UserExample> {
 
+    private final UserMapper mapper;
+
     @Autowired
-    private UserMapper mapper;
+    public UserServiceImpl(UserMapper mapper) {
+        this.mapper = mapper;
+    }
 
 
     @Override

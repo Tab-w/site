@@ -1,0 +1,16 @@
+#设置环境文件
+spring:
+  profiles:
+    active: dev
+---
+# 设置端口
+server:
+  port: 8888
+---
+# 设置代理为CGlib代理
+spring:
+  aop:
+    proxy-target-class: true
+---
+
+

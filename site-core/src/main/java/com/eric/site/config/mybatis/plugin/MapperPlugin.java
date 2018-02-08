@@ -1,5 +1,6 @@
 package com.eric.site.config.mybatis.plugin;
 
+import com.eric.site.config.mybatis.plugin.generator.AnnotatedSelectAllMethodGenerator;
 import org.mybatis.generator.api.GeneratedJavaFile;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
@@ -54,7 +55,7 @@ public class MapperPlugin extends PluginAdapter {
                         //设置方法名称
                         method.setName("selectAll");
                         //设置注解
-                        AnnotatedSelectAllMethodGengrator annotatedSelectAllMethodGengrator = new AnnotatedSelectAllMethodGengrator(introspectedTable, false, false);
+                        AnnotatedSelectAllMethodGenerator annotatedSelectAllMethodGengrator = new AnnotatedSelectAllMethodGenerator(introspectedTable, false, false);
                         annotatedSelectAllMethodGengrator.addMapperAnnotations(((Interface) unit), method);
                         //把方法添加到编辑项
                         ((Interface) unit).addMethod(method);
