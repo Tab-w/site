@@ -7,11 +7,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @author WangXingYu
- * @date 2018-01-31
+ * @Author: WangXY
+ * @Date: 2018-02-16
  */
 @Service
 public interface BaseService<Entity extends BaseEntity, EntityExample> {
+
     long countByExample(EntityExample example);
 
     int deleteByExample(EntityExample example);

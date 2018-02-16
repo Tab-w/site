@@ -7,8 +7,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 /**
- * @author WangXingYu
- * @date 2018-02-08
+ * @Author: WangXY
+ * @Date: 2018-02-16
  */
 public class DateEditor extends PropertiesEditor {
 

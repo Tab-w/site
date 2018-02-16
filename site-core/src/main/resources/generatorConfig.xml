@@ -27,13 +27,11 @@
         </commentGenerator>
 
         <!--数据库连接信息 -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://10.0.41.102:3306/saashr_wxy_100?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false" userId="admin_wangxy" password="123qweasdzxc">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/site?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false" userId="root" password="root">
         </jdbcConnection>
-        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false" userId="root" password="root">-->
-        <!--</jdbcConnection>-->
         <!--生成的entity 包路径 -->
         <javaModelGenerator targetPackage="com.eric.site.web.entity" targetProject="src/main/java">
-            <property name="enableSubPackages" value="ture"/>
+            <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
             <property name="rootClass" value="com.eric.site.web.base.BaseEntity"/>
         </javaModelGenerator>
@@ -51,15 +49,10 @@
             <!--<property name="rootInterface" value=""/>-->
         </javaClientGenerator>
         <!--对应数据库表名 -->
-        <!--<table tableName="sec_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+        <!--<table tableName="sec_user" domainObjectName="User">-->
             <!--&lt;!&ndash;生成与数据库一致的属性&ndash;&gt;-->
             <!--<property name="useActualColumnNames" value="true"/>-->
             <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
         <!--</table>-->
-        <table tableName="sec_user" domainObjectName="User">
-            <!--生成与数据库一致的属性-->
-            <property name="useActualColumnNames" value="true"/>
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
     </context>
 </generatorConfiguration>

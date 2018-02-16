@@ -2,8 +2,6 @@ package com.eric.site.web.base;
 
 import com.eric.site.web.util.DateEditor;
 import com.eric.site.web.util.DoubleEditor;
-
-
 import com.eric.site.web.util.FloatEditor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,13 +12,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 
 /**
- * @author WangXingYu
- * @date 2018-01-31
+ * @Author: WangXY
+ * @Date: 2018-02-16
  */
 @Controller
 public class BaseController {
@@ -32,9 +29,6 @@ public class BaseController {
 
     @Autowired
     protected HttpServletRequest request;
-
-    @Autowired
-    protected HttpServletResponse response;
 
     @InitBinder
     protected void initBinder(WebDataBinder binder) {

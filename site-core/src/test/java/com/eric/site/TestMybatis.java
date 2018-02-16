@@ -15,8 +15,8 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * @author WangXingYu
- * @date 2018-01-31
+ * @Author: WangXY
+ * @Date: 2018-02-16
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -32,10 +32,10 @@ public class TestMybatis {
         user.setUsername(random.nextInt() + "");
         int count = userServiceImpl.insert(user);
         Assert.assertEquals(count, 1);
-        user.setAge(20);
+        user.setEmail("123@qq.com");
         userServiceImpl.updateByPrimaryKey(user);
-        int age = userServiceImpl.selectByPrimaryKey(user.getId()).getAge();
-        Assert.assertEquals(age, 20);
+        String email = userServiceImpl.selectByPrimaryKey(user.getId()).getEmail();
+        Assert.assertEquals(email, "123@qq.com");
         count = userServiceImpl.deleteByPrimaryKey(user.getId());
         Assert.assertEquals(count, 1);
     }
@@ -44,8 +44,10 @@ public class TestMybatis {
     public void testPage() {
         PageHelper.startPage(1, 10);
         List<User> userList1 = userServiceImpl.selectAll();
-        for (User u : userList1) {
-            System.out.println(u.getFullname());
+        if(userList1!=null){
+            for (User u : userList1) {
+                System.out.println(u.getUsername());
+            }
         }
         UserExample userExample = new UserExample();
         userExample.createCriteria().andIdGreaterThan(1000);

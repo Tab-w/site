@@ -11,8 +11,8 @@ import java.util.List;
 import static org.mybatis.generator.internal.util.StringUtility.stringHasValue;
 
 /**
- * @author WangXingYu
- * @date 2018-01-31
+ * @Author: WangXY
+ * @Date: 2018-02-16
  */
 public class MapperPlugin extends PluginAdapter {
 

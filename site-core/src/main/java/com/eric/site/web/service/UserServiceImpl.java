@@ -10,19 +10,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @author WangXingYu
- * @date 2018-01-31
+ * @Author: WangXY
+ * @Date: 2018-02-16
  */
 @Service
 public class UserServiceImpl implements BaseService<User, UserExample> {
 
-    private final UserMapper mapper;
-
     @Autowired
-    public UserServiceImpl(UserMapper mapper) {
-        this.mapper = mapper;
-    }
-
+    private UserMapper mapper;
 
     @Override
     public long countByExample(UserExample userExample) {

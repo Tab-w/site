@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author WangXingYu
- * @date 2018-01-31
+ * @Author: WangXY
+ * @Date: 2018-02-16
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -29,9 +29,10 @@ public class Generator {
 
     @Before
     public void before() throws FileNotFoundException {
-        configFile = ResourceUtils.getFile("classpath:mybatis-generator.xml");
+        configFile = ResourceUtils.getFile("classpath:generatorConfig.xml");
     }
 
+    @Ignore
     @Test
     public void generate() throws Exception {
         List<String> warnings = new ArrayList<>();

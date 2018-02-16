@@ -9,9 +9,9 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     # 驱动类
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://10.0.41.102:3306/saashr_wxy_100?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: admin_wangxy
-    password: 123qweasdzxc
+    url: jdbc:mysql://localhost:3306/site?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
     # 连接池初始化连接数
     initialSize: 5
     # 连接池最小连接数

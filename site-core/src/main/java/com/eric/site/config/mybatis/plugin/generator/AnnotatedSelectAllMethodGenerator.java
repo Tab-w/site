@@ -13,8 +13,8 @@ import static org.mybatis.generator.codegen.mybatis3.MyBatis3FormattingUtilities
 import static org.mybatis.generator.internal.util.StringUtility.escapeStringForJava;
 
 /**
- * @author WangXingYu
- * @date 2018-02-02
+ * @Author: WangXY
+ * @Date: 2018-02-16
  */
 public class AnnotatedSelectAllMethodGenerator extends AbstractSelectAllMethodGenerator {
 

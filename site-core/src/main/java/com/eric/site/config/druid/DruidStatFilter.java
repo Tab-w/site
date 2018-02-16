@@ -6,8 +6,8 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;
 
 /**
- * @author: WangXingYu
- * @date: 2018-01-31
+ * @Author: WangXY
+ * @Date: 2018-02-16
  */
 @WebFilter(
         filterName = "druidWebStatFilter", urlPatterns = "/*",

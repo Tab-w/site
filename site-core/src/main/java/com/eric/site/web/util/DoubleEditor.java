@@ -4,8 +4,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.propertyeditors.PropertiesEditor;
 
 /**
- * @author WangXingYu
- * @date 2018-02-08
+ * @Author: WangXY
+ * @Date: 2018-02-16
  */
 public class DoubleEditor extends PropertiesEditor {
 
