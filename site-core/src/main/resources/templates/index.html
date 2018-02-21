@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:include="layout::head ('Index')">
-
-</head>
+<head th:include="/common/common_head::head ('Index')"></head>
 <body>
-<div th:include="layout::frag (1,2)">...</div>
+<div>
+    <p>index</p>
+</div>
+<div th:include="/common/onload_js::onloadJS"></div>
 </body>
-
 </html>

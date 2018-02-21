@@ -1,7 +1,6 @@
 package com.eric.site.web.base;
 
 import com.eric.site.web.entity.User;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,9 +26,9 @@ public interface BaseService<Entity extends BaseEntity, EntityExample> {
 
     User selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Entity record, @Param("example") EntityExample example);
+    int updateByExampleSelective(Entity record, EntityExample example);
 
-    int updateByExample(@Param("record") Entity record, @Param("example") EntityExample example);
+    int updateByExample(Entity record, EntityExample example);
 
     int updateByPrimaryKeySelective(Entity record);
 

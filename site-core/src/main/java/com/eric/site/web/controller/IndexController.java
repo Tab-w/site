@@ -15,6 +15,7 @@ public class IndexController extends BaseController {
 
     @RequestMapping
     public String index(Model model) {
+        log.info("to index page");
         model.addAttribute("index", "index");
         return "index";
     }

@@ -56,3 +56,9 @@ spring:
   thymeleaf:
     cache: false
 ---
+# ------------------------------web配置--------------------------------
+spring:
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/resources/,classpath:/static/
