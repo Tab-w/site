@@ -58,6 +58,41 @@ Configuration:
             size: ${FILE_SIZE}
         DefaultRolloverStrategy:
           max: 1000
+    Socket:
+      - name: LOGSTASH_ALL
+        host: 192.168.241.128
+        port: 4000
+        protocol: TCP
+        Filters:
+          ThresholdFilter:
+            - level: ERROR
+              onMatch: DENY
+              onMismatch: NEUTRAL
+            - level: DEBUG
+              onMatch: ACCEPT
+              onMismatch: DENY
+        PatternLayout:
+          pattern: ${LOG_PATTERN}
+      - name: LOGSTASH_ERROR
+        host: 192.168.241.128
+        port: 4001
+        protocol: TCP
+        ThresholdFilter:
+          level: ERROR
+          onMatch: ACCEPT
+          onMismatch: DENY
+        PatternLayout:
+          pattern: ${LOG_PATTERN}
+      - name: LOGSTASH_SQL
+        host: 192.168.241.128
+        port: 4002
+        protocol: TCP
+        ThresholdFilter:
+          level: TRACE
+          onMatch: ACCEPT
+          onMismatch: DENY
+        PatternLayout:
+          pattern: ${LOG_PATTERN}
   Loggers:
     Root:
       level: INFO
@@ -65,6 +100,8 @@ Configuration:
         - ref: CONSOLE
         - ref: ROLLING_FILE
         - ref: ROLLING_FILE_ERROR
+        - ref: LOGSTASH_ALL
+        - ref: LOGSTASH_ERROR
     Logger:
       - name: com.eric.site.web.dao #为com.eric.site.dao包配置特殊的Log级别,方便调试
         additivity: FALSE #不在父类的输出源中输出
@@ -72,3 +109,4 @@ Configuration:
         AppenderRef:
           - ref: CONSOLE
           - ref: ROLLING_FILE
+          - ref: LOGSTASH_SQL
