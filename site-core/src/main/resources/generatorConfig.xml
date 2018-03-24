@@ -27,7 +27,7 @@
         </commentGenerator>
 
         <!--数据库连接信息 -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/site?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false" userId="root" password="root">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://60.205.205.204:3306/site?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false" userId="root" password="727306Wxy~">
         </jdbcConnection>
         <!--生成的entity 包路径 -->
         <javaModelGenerator targetPackage="com.eric.site.web.entity" targetProject="src/main/java">
@@ -49,10 +49,10 @@
             <!--<property name="rootInterface" value=""/>-->
         </javaClientGenerator>
         <!--对应数据库表名 -->
-        <!--<table tableName="sec_user" domainObjectName="User">-->
-            <!--&lt;!&ndash;生成与数据库一致的属性&ndash;&gt;-->
-            <!--<property name="useActualColumnNames" value="true"/>-->
+        <table tableName="sec_user" domainObjectName="User">
+            <!--生成与数据库一致的属性-->
+            <property name="useActualColumnNames" value="true"/>
             <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
-        <!--</table>-->
+        </table>
     </context>
 </generatorConfiguration>

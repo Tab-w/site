@@ -4,7 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.propertyeditors.PropertiesEditor;
 
 /**
- * @Author: WangXY
+ * @Author: Eric
  * @Date: 2018-02-16
  */
 public class FloatEditor extends PropertiesEditor {

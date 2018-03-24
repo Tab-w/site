@@ -1,13 +1,12 @@
 package com.eric.site.web.dao;
 
 import com.eric.site.web.entity.User;
-import com.eric.site.web.entity.UserExample;
 import com.eric.site.web.entity.UserExample.Criteria;
 import com.eric.site.web.entity.UserExample.Criterion;
-import org.apache.ibatis.jdbc.SQL;
-
+import com.eric.site.web.entity.UserExample;
 import java.util.List;
 import java.util.Map;
+import org.apache.ibatis.jdbc.SQL;
 
 public class UserSqlProvider {
 
@@ -29,28 +28,40 @@ public class UserSqlProvider {
         SQL sql = new SQL();
         sql.INSERT_INTO("sec_user");
         
+        if (record.getId() != null) {
+            sql.VALUES("id", "#{id,jdbcType=BIGINT}");
+        }
+        
         if (record.getUsername() != null) {
-            sql.VALUES("username", "#{username,jdbcType=VARCHAR}");
+            sql.VALUES("username", "#{username,jdbcType=CHAR}");
         }
         
         if (record.getPassword() != null) {
-            sql.VALUES("password", "#{password,jdbcType=VARCHAR}");
+            sql.VALUES("password", "#{password,jdbcType=CHAR}");
         }
         
         if (record.getEmail() != null) {
-            sql.VALUES("email", "#{email,jdbcType=VARCHAR}");
+            sql.VALUES("email", "#{email,jdbcType=CHAR}");
+        }
+        
+        if (record.getPhone() != null) {
+            sql.VALUES("phone", "#{phone,jdbcType=INTEGER}");
+        }
+        
+        if (record.getFull_name() != null) {
+            sql.VALUES("full_name", "#{full_name,jdbcType=CHAR}");
         }
         
         if (record.getFlag() != null) {
-            sql.VALUES("flag", "#{flag,jdbcType=CHAR}");
+            sql.VALUES("flag", "#{flag,jdbcType=INTEGER}");
         }
         
-        if (record.getCreateTime() != null) {
-            sql.VALUES("createTime", "#{createTime,jdbcType=TIMESTAMP}");
+        if (record.getCreate_time() != null) {
+            sql.VALUES("create_time", "#{create_time,jdbcType=TIMESTAMP}");
         }
         
-        if (record.getUpdateTime() != null) {
-            sql.VALUES("updateTime", "#{updateTime,jdbcType=TIMESTAMP}");
+        if (record.getModify_time() != null) {
+            sql.VALUES("modify_time", "#{modify_time,jdbcType=TIMESTAMP}");
         }
         
         return sql.toString();
@@ -66,9 +77,11 @@ public class UserSqlProvider {
         sql.SELECT("username");
         sql.SELECT("password");
         sql.SELECT("email");
+        sql.SELECT("phone");
+        sql.SELECT("full_name");
         sql.SELECT("flag");
-        sql.SELECT("createTime");
-        sql.SELECT("updateTime");
+        sql.SELECT("create_time");
+        sql.SELECT("modify_time");
         sql.FROM("sec_user");
         applyWhere(sql, example, false);
         
@@ -87,31 +100,39 @@ public class UserSqlProvider {
         sql.UPDATE("sec_user");
         
         if (record.getId() != null) {
-            sql.SET("id = #{record.id,jdbcType=INTEGER}");
+            sql.SET("id = #{record.id,jdbcType=BIGINT}");
         }
         
         if (record.getUsername() != null) {
-            sql.SET("username = #{record.username,jdbcType=VARCHAR}");
+            sql.SET("username = #{record.username,jdbcType=CHAR}");
         }
         
         if (record.getPassword() != null) {
-            sql.SET("password = #{record.password,jdbcType=VARCHAR}");
+            sql.SET("password = #{record.password,jdbcType=CHAR}");
         }
         
         if (record.getEmail() != null) {
-            sql.SET("email = #{record.email,jdbcType=VARCHAR}");
+            sql.SET("email = #{record.email,jdbcType=CHAR}");
+        }
+        
+        if (record.getPhone() != null) {
+            sql.SET("phone = #{record.phone,jdbcType=INTEGER}");
+        }
+        
+        if (record.getFull_name() != null) {
+            sql.SET("full_name = #{record.full_name,jdbcType=CHAR}");
         }
         
         if (record.getFlag() != null) {
-            sql.SET("flag = #{record.flag,jdbcType=CHAR}");
+            sql.SET("flag = #{record.flag,jdbcType=INTEGER}");
         }
         
-        if (record.getCreateTime() != null) {
-            sql.SET("createTime = #{record.createTime,jdbcType=TIMESTAMP}");
+        if (record.getCreate_time() != null) {
+            sql.SET("create_time = #{record.create_time,jdbcType=TIMESTAMP}");
         }
         
-        if (record.getUpdateTime() != null) {
-            sql.SET("updateTime = #{record.updateTime,jdbcType=TIMESTAMP}");
+        if (record.getModify_time() != null) {
+            sql.SET("modify_time = #{record.modify_time,jdbcType=TIMESTAMP}");
         }
         
         applyWhere(sql, example, true);
@@ -122,13 +143,15 @@ public class UserSqlProvider {
         SQL sql = new SQL();
         sql.UPDATE("sec_user");
         
-        sql.SET("id = #{record.id,jdbcType=INTEGER}");
-        sql.SET("username = #{record.username,jdbcType=VARCHAR}");
-        sql.SET("password = #{record.password,jdbcType=VARCHAR}");
-        sql.SET("email = #{record.email,jdbcType=VARCHAR}");
-        sql.SET("flag = #{record.flag,jdbcType=CHAR}");
-        sql.SET("createTime = #{record.createTime,jdbcType=TIMESTAMP}");
-        sql.SET("updateTime = #{record.updateTime,jdbcType=TIMESTAMP}");
+        sql.SET("id = #{record.id,jdbcType=BIGINT}");
+        sql.SET("username = #{record.username,jdbcType=CHAR}");
+        sql.SET("password = #{record.password,jdbcType=CHAR}");
+        sql.SET("email = #{record.email,jdbcType=CHAR}");
+        sql.SET("phone = #{record.phone,jdbcType=INTEGER}");
+        sql.SET("full_name = #{record.full_name,jdbcType=CHAR}");
+        sql.SET("flag = #{record.flag,jdbcType=INTEGER}");
+        sql.SET("create_time = #{record.create_time,jdbcType=TIMESTAMP}");
+        sql.SET("modify_time = #{record.modify_time,jdbcType=TIMESTAMP}");
         
         UserExample example = (UserExample) parameter.get("example");
         applyWhere(sql, example, true);
@@ -140,30 +163,38 @@ public class UserSqlProvider {
         sql.UPDATE("sec_user");
         
         if (record.getUsername() != null) {
-            sql.SET("username = #{username,jdbcType=VARCHAR}");
+            sql.SET("username = #{username,jdbcType=CHAR}");
         }
         
         if (record.getPassword() != null) {
-            sql.SET("password = #{password,jdbcType=VARCHAR}");
+            sql.SET("password = #{password,jdbcType=CHAR}");
         }
         
         if (record.getEmail() != null) {
-            sql.SET("email = #{email,jdbcType=VARCHAR}");
+            sql.SET("email = #{email,jdbcType=CHAR}");
+        }
+        
+        if (record.getPhone() != null) {
+            sql.SET("phone = #{phone,jdbcType=INTEGER}");
+        }
+        
+        if (record.getFull_name() != null) {
+            sql.SET("full_name = #{full_name,jdbcType=CHAR}");
         }
         
         if (record.getFlag() != null) {
-            sql.SET("flag = #{flag,jdbcType=CHAR}");
+            sql.SET("flag = #{flag,jdbcType=INTEGER}");
         }
         
-        if (record.getCreateTime() != null) {
-            sql.SET("createTime = #{createTime,jdbcType=TIMESTAMP}");
+        if (record.getCreate_time() != null) {
+            sql.SET("create_time = #{create_time,jdbcType=TIMESTAMP}");
         }
         
-        if (record.getUpdateTime() != null) {
-            sql.SET("updateTime = #{updateTime,jdbcType=TIMESTAMP}");
+        if (record.getModify_time() != null) {
+            sql.SET("modify_time = #{modify_time,jdbcType=TIMESTAMP}");
         }
         
-        sql.WHERE("id = #{id,jdbcType=INTEGER}");
+        sql.WHERE("id = #{id,jdbcType=BIGINT}");
         
         return sql.toString();
     }

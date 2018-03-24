@@ -9,8 +9,7 @@ import org.springframework.core.env.Environment;
 import java.util.Properties;
 
 /**
- * @Author: WangXY
- * @Date: 2018-02-16
+ * @Author: Eric
  */
 @Configuration
 public class DruidConfiguration {

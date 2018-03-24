@@ -16,8 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.util.Date;
 
 /**
- * @Author: WangXY
- * @Date: 2018-02-16
+ * @Author: Eric
  */
 @Controller
 public class BaseController {

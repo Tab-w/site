@@ -9,8 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Properties;
 
 /**
- * @Author: WangXY
- * @Date: 2018-02-16
+ * @Author: Eric
  */
 @Configuration
 @AutoConfigureAfter(DruidConfiguration.class)

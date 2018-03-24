@@ -1,5 +1,6 @@
 package com.eric.site;
 
+import com.eric.site.core.utils.SnowflakeIdWorker;
 import com.eric.site.web.entity.User;
 import com.eric.site.web.entity.UserExample;
 import com.eric.site.web.service.UserServiceImpl;
@@ -15,8 +16,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * @Author: WangXY
- * @Date: 2018-02-16
+ * @Author: Eric
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -25,11 +25,15 @@ public class TestMybatis {
     @Autowired
     private UserServiceImpl userServiceImpl;
 
+    private SnowflakeIdWorker snowflakeIdWorker = new SnowflakeIdWorker(0L, 0L);
+
     @Test
     public void testCURD() {
         User user = new User();
+        user.setId(snowflakeIdWorker.nextId());
         Random random = new Random();
-        user.setUsername(random.nextInt() + "");
+        user.setUsername(String.valueOf(random.nextInt()));
+        user.setPassword(String.valueOf(random.nextInt()));
         int count = userServiceImpl.insert(user);
         Assert.assertEquals(count, 1);
         user.setEmail("123@qq.com");
@@ -44,13 +48,13 @@ public class TestMybatis {
     public void testPage() {
         PageHelper.startPage(1, 10);
         List<User> userList1 = userServiceImpl.selectAll();
-        if(userList1!=null){
+        if (userList1 != null) {
             for (User u : userList1) {
                 System.out.println(u.getUsername());
             }
         }
         UserExample userExample = new UserExample();
-        userExample.createCriteria().andIdGreaterThan(1000);
+        userExample.createCriteria().andIdGreaterThan(1000L);
         List<User> userList2 = userServiceImpl.selectByExample(userExample);
         Assert.assertNotNull(userList2);
     }

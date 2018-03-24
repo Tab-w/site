@@ -6,8 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @Author: WangXY
- * @Date: 2018-02-16
+ * @Author: Eric
  */
 @Service
 public interface BaseService<Entity extends BaseEntity, EntityExample> {
@@ -16,7 +15,7 @@ public interface BaseService<Entity extends BaseEntity, EntityExample> {
 
     int deleteByExample(EntityExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(long id);
 
     int insert(Entity record);
 
@@ -24,7 +23,7 @@ public interface BaseService<Entity extends BaseEntity, EntityExample> {
 
     List<User> selectByExample(EntityExample example);
 
-    User selectByPrimaryKey(Integer id);
+    User selectByPrimaryKey(long id);
 
     int updateByExampleSelective(Entity record, EntityExample example);
 

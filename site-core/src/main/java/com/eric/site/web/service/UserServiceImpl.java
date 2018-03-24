@@ -30,7 +30,7 @@ public class UserServiceImpl implements BaseService<User, UserExample> {
     }
 
     @Override
-    public int deleteByPrimaryKey(Integer id) {
+    public int deleteByPrimaryKey(long id) {
         return mapper.deleteByPrimaryKey(id);
     }
 
@@ -50,7 +50,7 @@ public class UserServiceImpl implements BaseService<User, UserExample> {
     }
 
     @Override
-    public User selectByPrimaryKey(Integer id) {
+    public User selectByPrimaryKey(long id) {
         return mapper.selectByPrimaryKey(id);
     }
 

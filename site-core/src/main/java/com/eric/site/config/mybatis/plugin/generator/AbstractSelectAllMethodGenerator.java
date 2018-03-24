@@ -9,8 +9,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * @Author: WangXY
- * @Date: 2018-02-16
+ * @Author: Eric
  */
 public abstract class AbstractSelectAllMethodGenerator extends AbstractJavaMapperMethodGenerator {
     private boolean isSimple;
