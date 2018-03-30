@@ -16,7 +16,7 @@
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
 
         <!-- 自定义方法 -->
-        <plugin type="com.eric.site.config.mybatis.plugin.MapperPlugin">
+        <plugin type="com.eric.site.config.mybatis.generator.plugin.MapperPlugin">
             <property name="targetProject" value="src/main/java"/>
             <property name="targetPackage" value="com.eric.site.web.dao"/>
         </plugin>

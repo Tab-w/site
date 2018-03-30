@@ -10,8 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 
@@ -29,6 +32,9 @@ public class BaseController {
     @Autowired
     protected HttpServletRequest request;
 
+    @Autowired
+    protected HttpServletResponse response;
+
     @InitBinder
     protected void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(Date.class, new DateEditor("yyyy-MM-dd", true));
@@ -40,6 +46,6 @@ public class BaseController {
     public String exceptionHandler(Exception e) {
         // 异常后的操作。。。。。。
         log.error(e.getMessage());
-        return "/500";
+        return "/error/defaultError";
     }
 }

@@ -1,20 +1,20 @@
-package com.eric.site.web.service;
+package com.eric.site.web.service.Impl;
 
-import com.eric.site.web.base.BaseService;
 import com.eric.site.web.dao.UserMapper;
 import com.eric.site.web.entity.User;
 import com.eric.site.web.entity.UserExample;
+import com.eric.site.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
- * @Author: WangXY
- * @Date: 2018-02-16
+ * @Author: Eric
  */
 @Service
-public class UserServiceImpl implements BaseService<User, UserExample> {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper mapper;

@@ -3,7 +3,7 @@ package com.eric.site;
 import com.eric.site.core.utils.SnowflakeIdWorker;
 import com.eric.site.web.entity.User;
 import com.eric.site.web.entity.UserExample;
-import com.eric.site.web.service.UserServiceImpl;
+import com.eric.site.web.service.Impl.UserServiceImpl;
 import com.github.pagehelper.PageHelper;
 import org.junit.Assert;
 import org.junit.Test;

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = {"/", "/index"})
 public class IndexController extends BaseController {
 
+
     @RequestMapping
     public String index(Model model) {
         log.debug("this is a debug log");

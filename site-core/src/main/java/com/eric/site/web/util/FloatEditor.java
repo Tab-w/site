@@ -5,7 +5,6 @@ import org.springframework.beans.propertyeditors.PropertiesEditor;
 
 /**
  * @Author: Eric
- * @Date: 2018-02-16
  */
 public class FloatEditor extends PropertiesEditor {
 

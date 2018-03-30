@@ -2,6 +2,7 @@ package com.eric.site.web.base;
 
 import com.eric.site.web.entity.User;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ import java.util.List;
  * @Author: Eric
  */
 @Service
+@Transactional(rollbackFor = java.lang.Exception.class)
 public interface BaseService<Entity extends BaseEntity, EntityExample> {
 
     long countByExample(EntityExample example);
