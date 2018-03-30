@@ -31,7 +31,7 @@ public class Generator {
         configFile = ResourceUtils.getFile("classpath:generatorConfig.xml");
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void generate() throws Exception {
         List<String> warnings = new ArrayList<>();

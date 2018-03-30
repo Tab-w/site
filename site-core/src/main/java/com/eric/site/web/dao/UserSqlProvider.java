@@ -48,20 +48,20 @@ public class UserSqlProvider {
             sql.VALUES("phone", "#{phone,jdbcType=INTEGER}");
         }
         
-        if (record.getFull_name() != null) {
-            sql.VALUES("full_name", "#{full_name,jdbcType=CHAR}");
+        if (record.getFullName() != null) {
+            sql.VALUES("full_name", "#{fullName,jdbcType=CHAR}");
         }
         
         if (record.getFlag() != null) {
             sql.VALUES("flag", "#{flag,jdbcType=INTEGER}");
         }
         
-        if (record.getCreate_time() != null) {
-            sql.VALUES("create_time", "#{create_time,jdbcType=TIMESTAMP}");
+        if (record.getCreateTime() != null) {
+            sql.VALUES("create_time", "#{createTime,jdbcType=TIMESTAMP}");
         }
         
-        if (record.getModify_time() != null) {
-            sql.VALUES("modify_time", "#{modify_time,jdbcType=TIMESTAMP}");
+        if (record.getModifyTime() != null) {
+            sql.VALUES("modify_time", "#{modifyTime,jdbcType=TIMESTAMP}");
         }
         
         return sql.toString();
@@ -119,20 +119,20 @@ public class UserSqlProvider {
             sql.SET("phone = #{record.phone,jdbcType=INTEGER}");
         }
         
-        if (record.getFull_name() != null) {
-            sql.SET("full_name = #{record.full_name,jdbcType=CHAR}");
+        if (record.getFullName() != null) {
+            sql.SET("full_name = #{record.fullName,jdbcType=CHAR}");
         }
         
         if (record.getFlag() != null) {
             sql.SET("flag = #{record.flag,jdbcType=INTEGER}");
         }
         
-        if (record.getCreate_time() != null) {
-            sql.SET("create_time = #{record.create_time,jdbcType=TIMESTAMP}");
+        if (record.getCreateTime() != null) {
+            sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
         }
         
-        if (record.getModify_time() != null) {
-            sql.SET("modify_time = #{record.modify_time,jdbcType=TIMESTAMP}");
+        if (record.getModifyTime() != null) {
+            sql.SET("modify_time = #{record.modifyTime,jdbcType=TIMESTAMP}");
         }
         
         applyWhere(sql, example, true);
@@ -148,10 +148,10 @@ public class UserSqlProvider {
         sql.SET("password = #{record.password,jdbcType=CHAR}");
         sql.SET("email = #{record.email,jdbcType=CHAR}");
         sql.SET("phone = #{record.phone,jdbcType=INTEGER}");
-        sql.SET("full_name = #{record.full_name,jdbcType=CHAR}");
+        sql.SET("full_name = #{record.fullName,jdbcType=CHAR}");
         sql.SET("flag = #{record.flag,jdbcType=INTEGER}");
-        sql.SET("create_time = #{record.create_time,jdbcType=TIMESTAMP}");
-        sql.SET("modify_time = #{record.modify_time,jdbcType=TIMESTAMP}");
+        sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
+        sql.SET("modify_time = #{record.modifyTime,jdbcType=TIMESTAMP}");
         
         UserExample example = (UserExample) parameter.get("example");
         applyWhere(sql, example, true);
@@ -178,20 +178,20 @@ public class UserSqlProvider {
             sql.SET("phone = #{phone,jdbcType=INTEGER}");
         }
         
-        if (record.getFull_name() != null) {
-            sql.SET("full_name = #{full_name,jdbcType=CHAR}");
+        if (record.getFullName() != null) {
+            sql.SET("full_name = #{fullName,jdbcType=CHAR}");
         }
         
         if (record.getFlag() != null) {
             sql.SET("flag = #{flag,jdbcType=INTEGER}");
         }
         
-        if (record.getCreate_time() != null) {
-            sql.SET("create_time = #{create_time,jdbcType=TIMESTAMP}");
+        if (record.getCreateTime() != null) {
+            sql.SET("create_time = #{createTime,jdbcType=TIMESTAMP}");
         }
         
-        if (record.getModify_time() != null) {
-            sql.SET("modify_time = #{modify_time,jdbcType=TIMESTAMP}");
+        if (record.getModifyTime() != null) {
+            sql.SET("modify_time = #{modifyTime,jdbcType=TIMESTAMP}");
         }
         
         sql.WHERE("id = #{id,jdbcType=BIGINT}");

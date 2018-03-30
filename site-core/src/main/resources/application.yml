@@ -6,6 +6,7 @@ spring:
 # 设置端口
 server:
   port: 8080
+  context-path: /
 ---
 # 设置代理为CGlib代理
 spring:

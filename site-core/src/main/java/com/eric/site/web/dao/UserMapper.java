@@ -36,8 +36,8 @@ public interface UserMapper {
         "modify_time)",
         "values (#{id,jdbcType=BIGINT}, #{username,jdbcType=CHAR}, ",
         "#{password,jdbcType=CHAR}, #{email,jdbcType=CHAR}, #{phone,jdbcType=INTEGER}, ",
-        "#{full_name,jdbcType=CHAR}, #{flag,jdbcType=INTEGER}, #{create_time,jdbcType=TIMESTAMP}, ",
-        "#{modify_time,jdbcType=TIMESTAMP})"
+        "#{fullName,jdbcType=CHAR}, #{flag,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, ",
+        "#{modifyTime,jdbcType=TIMESTAMP})"
     })
     int insert(User record);
 
@@ -51,10 +51,10 @@ public interface UserMapper {
         @Result(column="password", property="password", jdbcType=JdbcType.CHAR),
         @Result(column="email", property="email", jdbcType=JdbcType.CHAR),
         @Result(column="phone", property="phone", jdbcType=JdbcType.INTEGER),
-        @Result(column="full_name", property="full_name", jdbcType=JdbcType.CHAR),
+        @Result(column="full_name", property="fullName", jdbcType=JdbcType.CHAR),
         @Result(column="flag", property="flag", jdbcType=JdbcType.INTEGER),
-        @Result(column="create_time", property="create_time", jdbcType=JdbcType.TIMESTAMP),
-        @Result(column="modify_time", property="modify_time", jdbcType=JdbcType.TIMESTAMP)
+        @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="modify_time", property="modifyTime", jdbcType=JdbcType.TIMESTAMP)
     })
     List<User> selectByExample(UserExample example);
 
@@ -70,10 +70,10 @@ public interface UserMapper {
         @Result(column="password", property="password", jdbcType=JdbcType.CHAR),
         @Result(column="email", property="email", jdbcType=JdbcType.CHAR),
         @Result(column="phone", property="phone", jdbcType=JdbcType.INTEGER),
-        @Result(column="full_name", property="full_name", jdbcType=JdbcType.CHAR),
+        @Result(column="full_name", property="fullName", jdbcType=JdbcType.CHAR),
         @Result(column="flag", property="flag", jdbcType=JdbcType.INTEGER),
-        @Result(column="create_time", property="create_time", jdbcType=JdbcType.TIMESTAMP),
-        @Result(column="modify_time", property="modify_time", jdbcType=JdbcType.TIMESTAMP)
+        @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="modify_time", property="modifyTime", jdbcType=JdbcType.TIMESTAMP)
     })
     User selectByPrimaryKey(Long id);
 
@@ -92,10 +92,10 @@ public interface UserMapper {
           "password = #{password,jdbcType=CHAR},",
           "email = #{email,jdbcType=CHAR},",
           "phone = #{phone,jdbcType=INTEGER},",
-          "full_name = #{full_name,jdbcType=CHAR},",
+          "full_name = #{fullName,jdbcType=CHAR},",
           "flag = #{flag,jdbcType=INTEGER},",
-          "create_time = #{create_time,jdbcType=TIMESTAMP},",
-          "modify_time = #{modify_time,jdbcType=TIMESTAMP}",
+          "create_time = #{createTime,jdbcType=TIMESTAMP},",
+          "modify_time = #{modifyTime,jdbcType=TIMESTAMP}",
         "where id = #{id,jdbcType=BIGINT}"
     })
     int updateByPrimaryKey(User record);
@@ -111,10 +111,10 @@ public interface UserMapper {
         @Result(column="password", property="password", jdbcType=JdbcType.CHAR),
         @Result(column="email", property="email", jdbcType=JdbcType.CHAR),
         @Result(column="phone", property="phone", jdbcType=JdbcType.INTEGER),
-        @Result(column="full_name", property="full_name", jdbcType=JdbcType.CHAR),
+        @Result(column="full_name", property="fullName", jdbcType=JdbcType.CHAR),
         @Result(column="flag", property="flag", jdbcType=JdbcType.INTEGER),
-        @Result(column="create_time", property="create_time", jdbcType=JdbcType.TIMESTAMP),
-        @Result(column="modify_time", property="modify_time", jdbcType=JdbcType.TIMESTAMP)
+        @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="modify_time", property="modifyTime", jdbcType=JdbcType.TIMESTAMP)
     })
     List<User> selectAll();
 }

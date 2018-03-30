@@ -15,13 +15,13 @@ public class User extends BaseEntity implements Serializable {
 
     private Integer phone;
 
-    private String full_name;
+    private String fullName;
 
     private Integer flag;
 
-    private Date create_time;
+    private Date createTime;
 
-    private Date modify_time;
+    private Date modifyTime;
 
     private static final long serialVersionUID = 1L;
 
@@ -65,12 +65,12 @@ public class User extends BaseEntity implements Serializable {
         this.phone = phone;
     }
 
-    public String getFull_name() {
-        return full_name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFull_name(String full_name) {
-        this.full_name = full_name == null ? null : full_name.trim();
+    public void setFullName(String fullName) {
+        this.fullName = fullName == null ? null : fullName.trim();
     }
 
     public Integer getFlag() {
@@ -81,20 +81,20 @@ public class User extends BaseEntity implements Serializable {
         this.flag = flag;
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Date getModify_time() {
-        return modify_time;
+    public Date getModifyTime() {
+        return modifyTime;
     }
 
-    public void setModify_time(Date modify_time) {
-        this.modify_time = modify_time;
+    public void setModifyTime(Date modifyTime) {
+        this.modifyTime = modifyTime;
     }
 
     @Override
@@ -114,10 +114,10 @@ public class User extends BaseEntity implements Serializable {
             && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
             && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
             && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
-            && (this.getFull_name() == null ? other.getFull_name() == null : this.getFull_name().equals(other.getFull_name()))
+            && (this.getFullName() == null ? other.getFullName() == null : this.getFullName().equals(other.getFullName()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
-            && (this.getCreate_time() == null ? other.getCreate_time() == null : this.getCreate_time().equals(other.getCreate_time()))
-            && (this.getModify_time() == null ? other.getModify_time() == null : this.getModify_time().equals(other.getModify_time()));
+            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
+            && (this.getModifyTime() == null ? other.getModifyTime() == null : this.getModifyTime().equals(other.getModifyTime()));
     }
 
     @Override
@@ -129,10 +129,10 @@ public class User extends BaseEntity implements Serializable {
         result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
         result = prime * result + ((getEmail() == null) ? 0 : getEmail().hashCode());
         result = prime * result + ((getPhone() == null) ? 0 : getPhone().hashCode());
-        result = prime * result + ((getFull_name() == null) ? 0 : getFull_name().hashCode());
+        result = prime * result + ((getFullName() == null) ? 0 : getFullName().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
-        result = prime * result + ((getCreate_time() == null) ? 0 : getCreate_time().hashCode());
-        result = prime * result + ((getModify_time() == null) ? 0 : getModify_time().hashCode());
+        result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
+        result = prime * result + ((getModifyTime() == null) ? 0 : getModifyTime().hashCode());
         return result;
     }
 
@@ -147,10 +147,10 @@ public class User extends BaseEntity implements Serializable {
         sb.append(", password=").append(password);
         sb.append(", email=").append(email);
         sb.append(", phone=").append(phone);
-        sb.append(", full_name=").append(full_name);
+        sb.append(", fullName=").append(fullName);
         sb.append(", flag=").append(flag);
-        sb.append(", create_time=").append(create_time);
-        sb.append(", modify_time=").append(modify_time);
+        sb.append(", createTime=").append(createTime);
+        sb.append(", modifyTime=").append(modifyTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
