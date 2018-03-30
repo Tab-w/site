@@ -45,7 +45,6 @@ spring:
 ---
 # ------------------------------Mybatis配置----------------------------------
 mybatis:
-  dialect: mysql
   type-aliases-package: com.fesco.saashr.web.model
 ---
 # ------------------------------Redis配置-------------------------------------

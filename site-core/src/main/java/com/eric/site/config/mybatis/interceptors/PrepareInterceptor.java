@@ -27,11 +27,14 @@ public class PrepareInterceptor implements Interceptor {
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
         MappedStatement mappedStatement = (MappedStatement) invocation.getArgs()[0];
+        //注解中method的值
         String methodName = invocation.getMethod().getName();
+        //sql类型
         SqlCommandType sqlCommandType = mappedStatement.getSqlCommandType();
         if ("update".equals(methodName)) {
             Object object = invocation.getArgs()[1];
             Date currentDate = new Date(System.currentTimeMillis());
+            //对有要求的字段填值
             if (SqlCommandType.INSERT.equals(sqlCommandType)) {
                 Field fieldId = object.getClass().getDeclaredField("id");
                 fieldId.setAccessible(true);
@@ -49,7 +52,6 @@ public class PrepareInterceptor implements Interceptor {
                 log.info("更新操作时设置modify_time:{}", currentDate);
             }
         }
-        Thread.sleep(1000L);
         return invocation.proceed();
     }
 

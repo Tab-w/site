@@ -4,11 +4,9 @@ import com.eric.site.config.druid.DruidConfiguration;
 import com.eric.site.config.mybatis.interceptors.PrepareInterceptor;
 import com.github.pagehelper.PageHelper;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
 
 import java.util.Properties;
 
@@ -23,13 +21,9 @@ import java.util.Properties;
 @AutoConfigureAfter(DruidConfiguration.class)
 public class MybatisConfiguration {
 
-    private final Environment environment;
-
-    @Autowired
-    public MybatisConfiguration(Environment environment) {
-        this.environment = environment;
-    }
-
+    /**
+     * 分页插件
+     */
     @Bean
     public PageHelper pageHelper() {
         PageHelper pageHelper = new PageHelper();
@@ -41,14 +35,11 @@ public class MybatisConfiguration {
         return pageHelper;
     }
 
+    /**
+     * 前置拦截器,主要功能是插入前设置ID和create_time,更新时设置modify_time
+     */
     @Bean
     public PrepareInterceptor idInterceptor() {
-        PrepareInterceptor idInterceptor = new PrepareInterceptor();
-        Properties properties = new Properties();
-        properties.setProperty("dialect", environment.getProperty("mybatis.dialect"));
-        idInterceptor.setProperties(properties);
-        return idInterceptor;
+        return new PrepareInterceptor();
     }
-
-
 }
