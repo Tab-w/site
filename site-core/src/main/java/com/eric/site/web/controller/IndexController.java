@@ -17,21 +17,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = {"/", "/index"})
 public class IndexController extends BaseController {
 
-    @Autowired
-    private UserService userService;
-
     @RequestMapping
     public String index(Model model) {
-        User user = new User();
-        user.setUsername("a");
-        user.setPassword("a");
-        userService.insertSelective(user);
-        System.out.println(user);
         log.debug("this is a debug log");
         log.info("this is a info log");
         log.warn("this is a warn log");
         log.error("this is a error log");
         model.addAttribute("index", "index");
         return "index";
+    }
+
+    @RequestMapping("demo")
+    public String demo(Model model) {
+        return "demo";
     }
 }
