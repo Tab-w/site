@@ -26,9 +26,4 @@ public class IndexController extends BaseController {
         model.addAttribute("index", "index");
         return "index";
     }
-
-    @RequestMapping("demo")
-    public String demo(Model model) {
-        return "demo";
-    }
 }
