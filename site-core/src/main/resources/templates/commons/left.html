@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>quick_sidebar</title>
+</head>
+<body>
+<div th:fragment="left">
+    <!-- 左侧导航菜单[==START==] -->
+    <div class="page-sidebar-wrapper">
+        <div class="page-sidebar navbar-collapse collapse">
+            <!--注:添加"page-sidebar-menu-hover-submenu" 可以改变导航栏为鼠标悬浮显示子项-->
+            <!--注:设置data-keep-expanded="true" 保持子项始终打开 -->
+            <!--注:设置data-auto-scroll="false" 自动焦点失效 -->
+            <ul class="page-sidebar-menu  page-header-fixed" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                <li class="nav-item start active open">
+                    <a href="javascript:void(0);" class="nav-link nav-toggle">
+                        <i class="icon-home"></i>
+                        <span class="title">Dashboard</span>
+                        <span class="selected"></span>
+                        <span class="arrow open"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item start active open">
+                            <a href="index.html" class="nav-link ">
+                                <i class="icon-bar-chart"></i>
+                                <span class="title">Dashboard 1</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item start ">
+                            <a href="#" class="nav-link ">
+                                <i class="icon-bulb"></i>
+                                <span class="title">Dashboard 2</span>
+                                <span class="badge badge-success">1</span>
+                            </a>
+                        </li>
+                        <li class="nav-item start ">
+                            <a href="#" class="nav-link ">
+                                <i class="icon-graph"></i>
+                                <span class="title">Dashboard 3</span>
+                                <span class="badge badge-danger">5</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 左侧导航菜单[==END==] -->
+</div>
+</body>
+</html>
