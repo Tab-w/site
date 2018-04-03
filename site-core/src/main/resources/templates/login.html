@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/commons/header::header ('Index','/static/assets/pages/css/login.css')"></head>
+
+<body class="login">
+<div class="logo">
+    <a href="index.html">
+        <img src="../static/assets/pages/img/logo-big-white.png" style="height: 17px;" alt=""/> </a>
+</div>
+
+<div class="content">
+    <!-- 登录表单[==START==] -->
+    <form class="login-form" action="/login" method="post">
+        <div class="alert alert-danger display-hide">
+            <button class="close" data-close="alert"></button>
+            <span> Enter any username and password. </span>
+        </div>
+        <div class="form-group">
+            <!-- ie8, ie9 不支持placeholder属性 -->
+            <label class="control-label visible-ie8 visible-ie9">Username</label>
+            <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="帐号" name="username"/></div>
+        <div class="form-group">
+            <label class="control-label visible-ie8 visible-ie9">Password</label>
+            <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="密码" name="password"/></div>
+        <div class="form-actions">
+            <button type="submit" class="btn red btn-block uppercase">登录</button>
+        </div>
+
+        <div class="form-actions">
+            <div class="pull-left">
+                <label class="rememberme mt-checkbox mt-checkbox-outline">
+                    <input type="checkbox" name="remember" value="1"/>记住用户名
+                    <span></span>
+                </label>
+            </div>
+            <div class="pull-right forget-password-block">
+                <a href="javascript:;" id="register" class="register">注册</a>
+                <a href="javascript:;" id="forget-password" class="forget-password">忘记密码</a>
+            </div>
+        </div>
+        <div class="login-options">
+            <h4 class="pull-left">第三方帐号登录</h4>
+            <ul class="third-party pull-right">
+                <li>
+                    <a href="javascript:;"><i class="fa fa-weixin fa-2x"></i></a>
+                </li>
+                <li>
+                    <a href="javascript:;"><i class="fa fa-qq fa-2x"></i></a>
+                </li>
+                <li>
+                    <a href="javascript:;"><i class="fa fa-weibo fa-2x"></i></a>
+                </li>
+            </ul>
+        </div>
+    </form>
+    <!-- 登录表单[==END==] -->
+</div>
+<div class="copyright"> 2014 © Metronic. Admin Dashboard Template.</div>
+
+<div th:replace="/commons/onload_js::onloadJS('/static/assets/pages/js/login.js')"></div>
+</body>
+</html>

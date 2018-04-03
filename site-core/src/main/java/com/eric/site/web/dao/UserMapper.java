@@ -31,13 +31,19 @@ public interface UserMapper {
 
     @Insert({
         "insert into sec_user (id, username, ",
-        "password, email, phone, ",
-        "full_name, flag, create_time, ",
-        "modify_time)",
+        "password, attempt_count, ",
+        "login_time, last_login_time, ",
+        "email, phone, full_name, ",
+        "flag, create_time, ",
+        "create_user, modify_time, ",
+        "modify_user)",
         "values (#{id,jdbcType=BIGINT}, #{username,jdbcType=CHAR}, ",
-        "#{password,jdbcType=CHAR}, #{email,jdbcType=CHAR}, #{phone,jdbcType=INTEGER}, ",
-        "#{fullName,jdbcType=CHAR}, #{flag,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, ",
-        "#{modifyTime,jdbcType=TIMESTAMP})"
+        "#{password,jdbcType=CHAR}, #{attemptCount,jdbcType=INTEGER}, ",
+        "#{loginTime,jdbcType=TIMESTAMP}, #{lastLoginTime,jdbcType=TIMESTAMP}, ",
+        "#{email,jdbcType=CHAR}, #{phone,jdbcType=INTEGER}, #{fullName,jdbcType=CHAR}, ",
+        "#{flag,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, ",
+        "#{createUser,jdbcType=BIGINT}, #{modifyTime,jdbcType=TIMESTAMP}, ",
+        "#{modifyUser,jdbcType=BIGINT})"
     })
     int insert(User record);
 
@@ -49,18 +55,24 @@ public interface UserMapper {
         @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
         @Result(column="username", property="username", jdbcType=JdbcType.CHAR),
         @Result(column="password", property="password", jdbcType=JdbcType.CHAR),
+        @Result(column="attempt_count", property="attemptCount", jdbcType=JdbcType.INTEGER),
+        @Result(column="login_time", property="loginTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="last_login_time", property="lastLoginTime", jdbcType=JdbcType.TIMESTAMP),
         @Result(column="email", property="email", jdbcType=JdbcType.CHAR),
         @Result(column="phone", property="phone", jdbcType=JdbcType.INTEGER),
         @Result(column="full_name", property="fullName", jdbcType=JdbcType.CHAR),
         @Result(column="flag", property="flag", jdbcType=JdbcType.INTEGER),
         @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
-        @Result(column="modify_time", property="modifyTime", jdbcType=JdbcType.TIMESTAMP)
+        @Result(column="create_user", property="createUser", jdbcType=JdbcType.BIGINT),
+        @Result(column="modify_time", property="modifyTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="modify_user", property="modifyUser", jdbcType=JdbcType.BIGINT)
     })
     List<User> selectByExample(UserExample example);
 
     @Select({
         "select",
-        "id, username, password, email, phone, full_name, flag, create_time, modify_time",
+        "id, username, password, attempt_count, login_time, last_login_time, email, phone, ",
+        "full_name, flag, create_time, create_user, modify_time, modify_user",
         "from sec_user",
         "where id = #{id,jdbcType=BIGINT}"
     })
@@ -68,12 +80,17 @@ public interface UserMapper {
         @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
         @Result(column="username", property="username", jdbcType=JdbcType.CHAR),
         @Result(column="password", property="password", jdbcType=JdbcType.CHAR),
+        @Result(column="attempt_count", property="attemptCount", jdbcType=JdbcType.INTEGER),
+        @Result(column="login_time", property="loginTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="last_login_time", property="lastLoginTime", jdbcType=JdbcType.TIMESTAMP),
         @Result(column="email", property="email", jdbcType=JdbcType.CHAR),
         @Result(column="phone", property="phone", jdbcType=JdbcType.INTEGER),
         @Result(column="full_name", property="fullName", jdbcType=JdbcType.CHAR),
         @Result(column="flag", property="flag", jdbcType=JdbcType.INTEGER),
         @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
-        @Result(column="modify_time", property="modifyTime", jdbcType=JdbcType.TIMESTAMP)
+        @Result(column="create_user", property="createUser", jdbcType=JdbcType.BIGINT),
+        @Result(column="modify_time", property="modifyTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="modify_user", property="modifyUser", jdbcType=JdbcType.BIGINT)
     })
     User selectByPrimaryKey(Long id);
 
@@ -90,31 +107,42 @@ public interface UserMapper {
         "update sec_user",
         "set username = #{username,jdbcType=CHAR},",
           "password = #{password,jdbcType=CHAR},",
+          "attempt_count = #{attemptCount,jdbcType=INTEGER},",
+          "login_time = #{loginTime,jdbcType=TIMESTAMP},",
+          "last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},",
           "email = #{email,jdbcType=CHAR},",
           "phone = #{phone,jdbcType=INTEGER},",
           "full_name = #{fullName,jdbcType=CHAR},",
           "flag = #{flag,jdbcType=INTEGER},",
           "create_time = #{createTime,jdbcType=TIMESTAMP},",
-          "modify_time = #{modifyTime,jdbcType=TIMESTAMP}",
+          "create_user = #{createUser,jdbcType=BIGINT},",
+          "modify_time = #{modifyTime,jdbcType=TIMESTAMP},",
+          "modify_user = #{modifyUser,jdbcType=BIGINT}",
         "where id = #{id,jdbcType=BIGINT}"
     })
     int updateByPrimaryKey(User record);
 
     @Select({
         "select",
-        "id, username, password, email, phone, full_name, flag, create_time, modify_time",
+        "id, username, password, attempt_count, login_time, last_login_time, email, phone, ",
+        "full_name, flag, create_time, create_user, modify_time, modify_user",
         "from sec_user"
     })
     @Results(id = "user", value= {
         @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
         @Result(column="username", property="username", jdbcType=JdbcType.CHAR),
         @Result(column="password", property="password", jdbcType=JdbcType.CHAR),
+        @Result(column="attempt_count", property="attemptCount", jdbcType=JdbcType.INTEGER),
+        @Result(column="login_time", property="loginTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="last_login_time", property="lastLoginTime", jdbcType=JdbcType.TIMESTAMP),
         @Result(column="email", property="email", jdbcType=JdbcType.CHAR),
         @Result(column="phone", property="phone", jdbcType=JdbcType.INTEGER),
         @Result(column="full_name", property="fullName", jdbcType=JdbcType.CHAR),
         @Result(column="flag", property="flag", jdbcType=JdbcType.INTEGER),
         @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
-        @Result(column="modify_time", property="modifyTime", jdbcType=JdbcType.TIMESTAMP)
+        @Result(column="create_user", property="createUser", jdbcType=JdbcType.BIGINT),
+        @Result(column="modify_time", property="modifyTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="modify_user", property="modifyUser", jdbcType=JdbcType.BIGINT)
     })
     List<User> selectAll();
 }
