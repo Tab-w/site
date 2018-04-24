@@ -23,7 +23,7 @@ CREATE TABLE `sec_user` (
   `id` bigint(19) NOT NULL COMMENT '主键',
   `username` char(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '登录帐号',
   `password` char(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '登录密码',
-  `attempt_count` int(2) DEFAULT NULL COMMENT '企图登录次数',
+  `login_count` int(2) DEFAULT NULL COMMENT '登录次数',
   `login_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '登陆时间',
   `last_login_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '上次登陆时间',
   `email` char(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '电子邮箱',

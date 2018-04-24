@@ -12,7 +12,7 @@
             <!-- LOGO[==START==] -->
             <div class="page-logo">
                 <a href="index.html">
-                    <img src="../static/assets/layout/img/logo-default.png" alt="logo" class="logo-default"/></a>
+                    <img th:src="@{/static/assets/layout/img/logo-default.png}" alt="logo" class="logo-default"/></a>
                 <!--导航收缩按钮-->
                 <div class="menu-toggler sidebar-toggler"></div>
             </div>
@@ -72,7 +72,7 @@
                                         <li>
                                             <a href="#">
                                             <span class="photo">
-                                                <img src="../static/assets/layout/img/avatar2.jpg" class="img-circle" alt=""/> </span>
+                                                <img th:src="@{/static/assets/layout/img/avatar2.jpg}" class="img-circle" alt=""/> </span>
                                                 <span class="subject">
                                                 <span class="from"> Lisa Wong </span>
                                                 <span class="time">Just Now </span>
@@ -117,7 +117,7 @@
                         <!--用户选项-->
                         <li class="dropdown dropdown-hoverable dropdown-user">
                             <a href="javascript:void(0);" class="dropdown-toggle">
-                                <img alt="" class="img-circle" src="../static/assets/layout/img/avatar3_small.jpg"/>
+                                <img alt="" class="img-circle" th:src="@{/static/assets/layout/img/avatar3_small.jpg}"/>
                                 <span class="username username-hide-on-mobile"> Nick </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>

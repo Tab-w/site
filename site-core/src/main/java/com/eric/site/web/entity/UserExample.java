@@ -235,6 +235,76 @@ public class UserExample {
             return (Criteria) this;
         }
 
+        public Criteria andFullNameIsNull() {
+            addCriterion("full_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFullNameIsNotNull() {
+            addCriterion("full_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFullNameEqualTo(String value) {
+            addCriterion("full_name =", value, "fullName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFullNameNotEqualTo(String value) {
+            addCriterion("full_name <>", value, "fullName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFullNameGreaterThan(String value) {
+            addCriterion("full_name >", value, "fullName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFullNameGreaterThanOrEqualTo(String value) {
+            addCriterion("full_name >=", value, "fullName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFullNameLessThan(String value) {
+            addCriterion("full_name <", value, "fullName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFullNameLessThanOrEqualTo(String value) {
+            addCriterion("full_name <=", value, "fullName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFullNameLike(String value) {
+            addCriterion("full_name like", value, "fullName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFullNameNotLike(String value) {
+            addCriterion("full_name not like", value, "fullName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFullNameIn(List<String> values) {
+            addCriterion("full_name in", values, "fullName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFullNameNotIn(List<String> values) {
+            addCriterion("full_name not in", values, "fullName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFullNameBetween(String value1, String value2) {
+            addCriterion("full_name between", value1, value2, "fullName");
+            return (Criteria) this;
+        }
+
+        public Criteria andFullNameNotBetween(String value1, String value2) {
+            addCriterion("full_name not between", value1, value2, "fullName");
+            return (Criteria) this;
+        }
+
         public Criteria andPasswordIsNull() {
             addCriterion("password is null");
             return (Criteria) this;
@@ -305,63 +375,63 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andAttemptCountIsNull() {
-            addCriterion("attempt_count is null");
+        public Criteria andLoginCountIsNull() {
+            addCriterion("login_count is null");
             return (Criteria) this;
         }
 
-        public Criteria andAttemptCountIsNotNull() {
-            addCriterion("attempt_count is not null");
+        public Criteria andLoginCountIsNotNull() {
+            addCriterion("login_count is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAttemptCountEqualTo(Integer value) {
-            addCriterion("attempt_count =", value, "attemptCount");
+        public Criteria andLoginCountEqualTo(Integer value) {
+            addCriterion("login_count =", value, "loginCount");
             return (Criteria) this;
         }
 
-        public Criteria andAttemptCountNotEqualTo(Integer value) {
-            addCriterion("attempt_count <>", value, "attemptCount");
+        public Criteria andLoginCountNotEqualTo(Integer value) {
+            addCriterion("login_count <>", value, "loginCount");
             return (Criteria) this;
         }
 
-        public Criteria andAttemptCountGreaterThan(Integer value) {
-            addCriterion("attempt_count >", value, "attemptCount");
+        public Criteria andLoginCountGreaterThan(Integer value) {
+            addCriterion("login_count >", value, "loginCount");
             return (Criteria) this;
         }
 
-        public Criteria andAttemptCountGreaterThanOrEqualTo(Integer value) {
-            addCriterion("attempt_count >=", value, "attemptCount");
+        public Criteria andLoginCountGreaterThanOrEqualTo(Integer value) {
+            addCriterion("login_count >=", value, "loginCount");
             return (Criteria) this;
         }
 
-        public Criteria andAttemptCountLessThan(Integer value) {
-            addCriterion("attempt_count <", value, "attemptCount");
+        public Criteria andLoginCountLessThan(Integer value) {
+            addCriterion("login_count <", value, "loginCount");
             return (Criteria) this;
         }
 
-        public Criteria andAttemptCountLessThanOrEqualTo(Integer value) {
-            addCriterion("attempt_count <=", value, "attemptCount");
+        public Criteria andLoginCountLessThanOrEqualTo(Integer value) {
+            addCriterion("login_count <=", value, "loginCount");
             return (Criteria) this;
         }
 
-        public Criteria andAttemptCountIn(List<Integer> values) {
-            addCriterion("attempt_count in", values, "attemptCount");
+        public Criteria andLoginCountIn(List<Integer> values) {
+            addCriterion("login_count in", values, "loginCount");
             return (Criteria) this;
         }
 
-        public Criteria andAttemptCountNotIn(List<Integer> values) {
-            addCriterion("attempt_count not in", values, "attemptCount");
+        public Criteria andLoginCountNotIn(List<Integer> values) {
+            addCriterion("login_count not in", values, "loginCount");
             return (Criteria) this;
         }
 
-        public Criteria andAttemptCountBetween(Integer value1, Integer value2) {
-            addCriterion("attempt_count between", value1, value2, "attemptCount");
+        public Criteria andLoginCountBetween(Integer value1, Integer value2) {
+            addCriterion("login_count between", value1, value2, "loginCount");
             return (Criteria) this;
         }
 
-        public Criteria andAttemptCountNotBetween(Integer value1, Integer value2) {
-            addCriterion("attempt_count not between", value1, value2, "attemptCount");
+        public Criteria andLoginCountNotBetween(Integer value1, Integer value2) {
+            addCriterion("login_count not between", value1, value2, "loginCount");
             return (Criteria) this;
         }
 
@@ -615,73 +685,303 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andFullNameIsNull() {
-            addCriterion("full_name is null");
+        public Criteria andGroupIdIsNull() {
+            addCriterion("group_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andFullNameIsNotNull() {
-            addCriterion("full_name is not null");
+        public Criteria andGroupIdIsNotNull() {
+            addCriterion("group_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andFullNameEqualTo(String value) {
-            addCriterion("full_name =", value, "fullName");
+        public Criteria andGroupIdEqualTo(Long value) {
+            addCriterion("group_id =", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andFullNameNotEqualTo(String value) {
-            addCriterion("full_name <>", value, "fullName");
+        public Criteria andGroupIdNotEqualTo(Long value) {
+            addCriterion("group_id <>", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andFullNameGreaterThan(String value) {
-            addCriterion("full_name >", value, "fullName");
+        public Criteria andGroupIdGreaterThan(Long value) {
+            addCriterion("group_id >", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andFullNameGreaterThanOrEqualTo(String value) {
-            addCriterion("full_name >=", value, "fullName");
+        public Criteria andGroupIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("group_id >=", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andFullNameLessThan(String value) {
-            addCriterion("full_name <", value, "fullName");
+        public Criteria andGroupIdLessThan(Long value) {
+            addCriterion("group_id <", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andFullNameLessThanOrEqualTo(String value) {
-            addCriterion("full_name <=", value, "fullName");
+        public Criteria andGroupIdLessThanOrEqualTo(Long value) {
+            addCriterion("group_id <=", value, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andFullNameLike(String value) {
-            addCriterion("full_name like", value, "fullName");
+        public Criteria andGroupIdIn(List<Long> values) {
+            addCriterion("group_id in", values, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andFullNameNotLike(String value) {
-            addCriterion("full_name not like", value, "fullName");
+        public Criteria andGroupIdNotIn(List<Long> values) {
+            addCriterion("group_id not in", values, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andFullNameIn(List<String> values) {
-            addCriterion("full_name in", values, "fullName");
+        public Criteria andGroupIdBetween(Long value1, Long value2) {
+            addCriterion("group_id between", value1, value2, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andFullNameNotIn(List<String> values) {
-            addCriterion("full_name not in", values, "fullName");
+        public Criteria andGroupIdNotBetween(Long value1, Long value2) {
+            addCriterion("group_id not between", value1, value2, "groupId");
             return (Criteria) this;
         }
 
-        public Criteria andFullNameBetween(String value1, String value2) {
-            addCriterion("full_name between", value1, value2, "fullName");
+        public Criteria andEnabledIsNull() {
+            addCriterion("enabled is null");
             return (Criteria) this;
         }
 
-        public Criteria andFullNameNotBetween(String value1, String value2) {
-            addCriterion("full_name not between", value1, value2, "fullName");
+        public Criteria andEnabledIsNotNull() {
+            addCriterion("enabled is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnabledEqualTo(Boolean value) {
+            addCriterion("enabled =", value, "enabled");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnabledNotEqualTo(Boolean value) {
+            addCriterion("enabled <>", value, "enabled");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnabledGreaterThan(Boolean value) {
+            addCriterion("enabled >", value, "enabled");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnabledGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("enabled >=", value, "enabled");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnabledLessThan(Boolean value) {
+            addCriterion("enabled <", value, "enabled");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnabledLessThanOrEqualTo(Boolean value) {
+            addCriterion("enabled <=", value, "enabled");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnabledIn(List<Boolean> values) {
+            addCriterion("enabled in", values, "enabled");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnabledNotIn(List<Boolean> values) {
+            addCriterion("enabled not in", values, "enabled");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnabledBetween(Boolean value1, Boolean value2) {
+            addCriterion("enabled between", value1, value2, "enabled");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnabledNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("enabled not between", value1, value2, "enabled");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonExpiredIsNull() {
+            addCriterion("account_non_expired is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonExpiredIsNotNull() {
+            addCriterion("account_non_expired is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonExpiredEqualTo(Boolean value) {
+            addCriterion("account_non_expired =", value, "accountNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonExpiredNotEqualTo(Boolean value) {
+            addCriterion("account_non_expired <>", value, "accountNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonExpiredGreaterThan(Boolean value) {
+            addCriterion("account_non_expired >", value, "accountNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonExpiredGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("account_non_expired >=", value, "accountNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonExpiredLessThan(Boolean value) {
+            addCriterion("account_non_expired <", value, "accountNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonExpiredLessThanOrEqualTo(Boolean value) {
+            addCriterion("account_non_expired <=", value, "accountNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonExpiredIn(List<Boolean> values) {
+            addCriterion("account_non_expired in", values, "accountNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonExpiredNotIn(List<Boolean> values) {
+            addCriterion("account_non_expired not in", values, "accountNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonExpiredBetween(Boolean value1, Boolean value2) {
+            addCriterion("account_non_expired between", value1, value2, "accountNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonExpiredNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("account_non_expired not between", value1, value2, "accountNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonLockedIsNull() {
+            addCriterion("account_non_locked is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonLockedIsNotNull() {
+            addCriterion("account_non_locked is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonLockedEqualTo(Boolean value) {
+            addCriterion("account_non_locked =", value, "accountNonLocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonLockedNotEqualTo(Boolean value) {
+            addCriterion("account_non_locked <>", value, "accountNonLocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonLockedGreaterThan(Boolean value) {
+            addCriterion("account_non_locked >", value, "accountNonLocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonLockedGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("account_non_locked >=", value, "accountNonLocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonLockedLessThan(Boolean value) {
+            addCriterion("account_non_locked <", value, "accountNonLocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonLockedLessThanOrEqualTo(Boolean value) {
+            addCriterion("account_non_locked <=", value, "accountNonLocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonLockedIn(List<Boolean> values) {
+            addCriterion("account_non_locked in", values, "accountNonLocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonLockedNotIn(List<Boolean> values) {
+            addCriterion("account_non_locked not in", values, "accountNonLocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonLockedBetween(Boolean value1, Boolean value2) {
+            addCriterion("account_non_locked between", value1, value2, "accountNonLocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountNonLockedNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("account_non_locked not between", value1, value2, "accountNonLocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andCredentialsNonExpiredIsNull() {
+            addCriterion("credentials_non_expired is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCredentialsNonExpiredIsNotNull() {
+            addCriterion("credentials_non_expired is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCredentialsNonExpiredEqualTo(Boolean value) {
+            addCriterion("credentials_non_expired =", value, "credentialsNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andCredentialsNonExpiredNotEqualTo(Boolean value) {
+            addCriterion("credentials_non_expired <>", value, "credentialsNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andCredentialsNonExpiredGreaterThan(Boolean value) {
+            addCriterion("credentials_non_expired >", value, "credentialsNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andCredentialsNonExpiredGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("credentials_non_expired >=", value, "credentialsNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andCredentialsNonExpiredLessThan(Boolean value) {
+            addCriterion("credentials_non_expired <", value, "credentialsNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andCredentialsNonExpiredLessThanOrEqualTo(Boolean value) {
+            addCriterion("credentials_non_expired <=", value, "credentialsNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andCredentialsNonExpiredIn(List<Boolean> values) {
+            addCriterion("credentials_non_expired in", values, "credentialsNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andCredentialsNonExpiredNotIn(List<Boolean> values) {
+            addCriterion("credentials_non_expired not in", values, "credentialsNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andCredentialsNonExpiredBetween(Boolean value1, Boolean value2) {
+            addCriterion("credentials_non_expired between", value1, value2, "credentialsNonExpired");
+            return (Criteria) this;
+        }
+
+        public Criteria andCredentialsNonExpiredNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("credentials_non_expired not between", value1, value2, "credentialsNonExpired");
             return (Criteria) this;
         }
 

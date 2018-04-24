@@ -1,6 +1,5 @@
 package com.eric.site.web.base;
 
-import com.eric.site.web.entity.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,9 +22,9 @@ public interface BaseService<Entity extends BaseEntity, EntityExample> {
 
     int insertSelective(Entity record);
 
-    List<User> selectByExample(EntityExample example);
+    List<Entity> selectByExample(EntityExample example);
 
-    User selectByPrimaryKey(long id);
+    Entity selectByPrimaryKey(long id);
 
     int updateByExampleSelective(Entity record, EntityExample example);
 
@@ -35,5 +34,5 @@ public interface BaseService<Entity extends BaseEntity, EntityExample> {
 
     int updateByPrimaryKey(Entity record);
 
-    List<User> selectAll();
+    List<Entity> selectAll();
 }

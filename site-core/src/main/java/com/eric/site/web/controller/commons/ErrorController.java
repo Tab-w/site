@@ -1,4 +1,4 @@
-package com.eric.site.web.controller;
+package com.eric.site.web.controller.commons;
 
 import com.eric.site.web.base.BaseController;
 import org.springframework.stereotype.Controller;

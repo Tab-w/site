@@ -1,351 +1,195 @@
 package com.eric.site.web.dao;
 
-import com.eric.site.web.entity.User;
-import com.eric.site.web.entity.UserExample.Criteria;
-import com.eric.site.web.entity.UserExample.Criterion;
-import com.eric.site.web.entity.UserExample;
-
+import com.eric.site.web.entity.Role;
+import com.eric.site.web.entity.RoleExample.Criteria;
+import com.eric.site.web.entity.RoleExample.Criterion;
+import com.eric.site.web.entity.RoleExample;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.ibatis.jdbc.SQL;
 
-public class UserSqlProvider {
+public class RoleSqlProvider {
 
-    public String countByExample(UserExample example) {
+    public String countByExample(RoleExample example) {
         SQL sql = new SQL();
-        sql.SELECT("count(*)").FROM("sys_user");
+        sql.SELECT("count(*)").FROM("sys_role");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String deleteByExample(UserExample example) {
+    public String deleteByExample(RoleExample example) {
         SQL sql = new SQL();
-        sql.DELETE_FROM("sys_user");
+        sql.DELETE_FROM("sys_role");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String insertSelective(User record) {
+    public String insertSelective(Role record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("sys_user");
-
+        sql.INSERT_INTO("sys_role");
+        
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=BIGINT}");
         }
-
-        if (record.getUsername() != null) {
-            sql.VALUES("username", "#{username,jdbcType=CHAR}");
+        
+        if (record.getRoleName() != null) {
+            sql.VALUES("role_name", "#{roleName,jdbcType=CHAR}");
         }
-
-        if (record.getFullName() != null) {
-            sql.VALUES("full_name", "#{fullName,jdbcType=CHAR}");
+        
+        if (record.getDescription() != null) {
+            sql.VALUES("description", "#{description,jdbcType=VARCHAR}");
         }
-
-        if (record.getPassword() != null) {
-            sql.VALUES("password", "#{password,jdbcType=CHAR}");
-        }
-
-        if (record.getLoginCount() != null) {
-            sql.VALUES("login_count", "#{loginCount,jdbcType=INTEGER}");
-        }
-
-        if (record.getLoginTime() != null) {
-            sql.VALUES("login_time", "#{loginTime,jdbcType=TIMESTAMP}");
-        }
-
-        if (record.getLastLoginTime() != null) {
-            sql.VALUES("last_login_time", "#{lastLoginTime,jdbcType=TIMESTAMP}");
-        }
-
-        if (record.getEmail() != null) {
-            sql.VALUES("email", "#{email,jdbcType=CHAR}");
-        }
-
-        if (record.getPhone() != null) {
-            sql.VALUES("phone", "#{phone,jdbcType=INTEGER}");
-        }
-
-        if (record.getGroupId() != null) {
-            sql.VALUES("group_id", "#{groupId,jdbcType=BIGINT}");
-        }
-
-        if (record.getEnabled() != null) {
-            sql.VALUES("enabled", "#{enabled,jdbcType=BIT}");
-        }
-
-        if (record.getAccountNonExpired() != null) {
-            sql.VALUES("account_non_expired", "#{accountNonExpired,jdbcType=BIT}");
-        }
-
-        if (record.getAccountNonLocked() != null) {
-            sql.VALUES("account_non_locked", "#{accountNonLocked,jdbcType=BIT}");
-        }
-
-        if (record.getCredentialsNonExpired() != null) {
-            sql.VALUES("credentials_non_expired", "#{credentialsNonExpired,jdbcType=BIT}");
-        }
-
+        
         if (record.getFlag() != null) {
             sql.VALUES("flag", "#{flag,jdbcType=INTEGER}");
         }
-
+        
         if (record.getCreateTime() != null) {
             sql.VALUES("create_time", "#{createTime,jdbcType=TIMESTAMP}");
         }
-
+        
         if (record.getCreateUser() != null) {
             sql.VALUES("create_user", "#{createUser,jdbcType=BIGINT}");
         }
-
+        
         if (record.getModifyTime() != null) {
             sql.VALUES("modify_time", "#{modifyTime,jdbcType=TIMESTAMP}");
         }
-
+        
         if (record.getModifyUser() != null) {
             sql.VALUES("modify_user", "#{modifyUser,jdbcType=BIGINT}");
         }
-
+        
         return sql.toString();
     }
 
-    public String selectByExample(UserExample example) {
+    public String selectByExample(RoleExample example) {
         SQL sql = new SQL();
         if (example != null && example.isDistinct()) {
             sql.SELECT_DISTINCT("id");
         } else {
             sql.SELECT("id");
         }
-        sql.SELECT("username");
-        sql.SELECT("full_name");
-        sql.SELECT("password");
-        sql.SELECT("login_count");
-        sql.SELECT("login_time");
-        sql.SELECT("last_login_time");
-        sql.SELECT("email");
-        sql.SELECT("phone");
-        sql.SELECT("group_id");
-        sql.SELECT("enabled");
-        sql.SELECT("account_non_expired");
-        sql.SELECT("account_non_locked");
-        sql.SELECT("credentials_non_expired");
+        sql.SELECT("role_name");
+        sql.SELECT("description");
         sql.SELECT("flag");
         sql.SELECT("create_time");
         sql.SELECT("create_user");
         sql.SELECT("modify_time");
         sql.SELECT("modify_user");
-        sql.FROM("sys_user");
+        sql.FROM("sys_role");
         applyWhere(sql, example, false);
-
+        
         if (example != null && example.getOrderByClause() != null) {
             sql.ORDER_BY(example.getOrderByClause());
         }
-
+        
         return sql.toString();
     }
 
     public String updateByExampleSelective(Map<String, Object> parameter) {
-        User record = (User) parameter.get("record");
-        UserExample example = (UserExample) parameter.get("example");
-
+        Role record = (Role) parameter.get("record");
+        RoleExample example = (RoleExample) parameter.get("example");
+        
         SQL sql = new SQL();
-        sql.UPDATE("sys_user");
-
+        sql.UPDATE("sys_role");
+        
         if (record.getId() != null) {
             sql.SET("id = #{record.id,jdbcType=BIGINT}");
         }
-
-        if (record.getUsername() != null) {
-            sql.SET("username = #{record.username,jdbcType=CHAR}");
+        
+        if (record.getRoleName() != null) {
+            sql.SET("role_name = #{record.roleName,jdbcType=CHAR}");
         }
-
-        if (record.getFullName() != null) {
-            sql.SET("full_name = #{record.fullName,jdbcType=CHAR}");
+        
+        if (record.getDescription() != null) {
+            sql.SET("description = #{record.description,jdbcType=VARCHAR}");
         }
-
-        if (record.getPassword() != null) {
-            sql.SET("password = #{record.password,jdbcType=CHAR}");
-        }
-
-        if (record.getLoginCount() != null) {
-            sql.SET("login_count = #{record.loginCount,jdbcType=INTEGER}");
-        }
-
-        if (record.getLoginTime() != null) {
-            sql.SET("login_time = #{record.loginTime,jdbcType=TIMESTAMP}");
-        }
-
-        if (record.getLastLoginTime() != null) {
-            sql.SET("last_login_time = #{record.lastLoginTime,jdbcType=TIMESTAMP}");
-        }
-
-        if (record.getEmail() != null) {
-            sql.SET("email = #{record.email,jdbcType=CHAR}");
-        }
-
-        if (record.getPhone() != null) {
-            sql.SET("phone = #{record.phone,jdbcType=INTEGER}");
-        }
-
-        if (record.getGroupId() != null) {
-            sql.SET("group_id = #{record.groupId,jdbcType=BIGINT}");
-        }
-
-        if (record.getEnabled() != null) {
-            sql.SET("enabled = #{record.enabled,jdbcType=BIT}");
-        }
-
-        if (record.getAccountNonExpired() != null) {
-            sql.SET("account_non_expired = #{record.accountNonExpired,jdbcType=BIT}");
-        }
-
-        if (record.getAccountNonLocked() != null) {
-            sql.SET("account_non_locked = #{record.accountNonLocked,jdbcType=BIT}");
-        }
-
-        if (record.getCredentialsNonExpired() != null) {
-            sql.SET("credentials_non_expired = #{record.credentialsNonExpired,jdbcType=BIT}");
-        }
-
+        
         if (record.getFlag() != null) {
             sql.SET("flag = #{record.flag,jdbcType=INTEGER}");
         }
-
+        
         if (record.getCreateTime() != null) {
             sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
         }
-
+        
         if (record.getCreateUser() != null) {
             sql.SET("create_user = #{record.createUser,jdbcType=BIGINT}");
         }
-
+        
         if (record.getModifyTime() != null) {
             sql.SET("modify_time = #{record.modifyTime,jdbcType=TIMESTAMP}");
         }
-
+        
         if (record.getModifyUser() != null) {
             sql.SET("modify_user = #{record.modifyUser,jdbcType=BIGINT}");
         }
-
+        
         applyWhere(sql, example, true);
         return sql.toString();
     }
 
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
-        sql.UPDATE("sys_user");
-
+        sql.UPDATE("sys_role");
+        
         sql.SET("id = #{record.id,jdbcType=BIGINT}");
-        sql.SET("username = #{record.username,jdbcType=CHAR}");
-        sql.SET("full_name = #{record.fullName,jdbcType=CHAR}");
-        sql.SET("password = #{record.password,jdbcType=CHAR}");
-        sql.SET("login_count = #{record.loginCount,jdbcType=INTEGER}");
-        sql.SET("login_time = #{record.loginTime,jdbcType=TIMESTAMP}");
-        sql.SET("last_login_time = #{record.lastLoginTime,jdbcType=TIMESTAMP}");
-        sql.SET("email = #{record.email,jdbcType=CHAR}");
-        sql.SET("phone = #{record.phone,jdbcType=INTEGER}");
-        sql.SET("group_id = #{record.groupId,jdbcType=BIGINT}");
-        sql.SET("enabled = #{record.enabled,jdbcType=BIT}");
-        sql.SET("account_non_expired = #{record.accountNonExpired,jdbcType=BIT}");
-        sql.SET("account_non_locked = #{record.accountNonLocked,jdbcType=BIT}");
-        sql.SET("credentials_non_expired = #{record.credentialsNonExpired,jdbcType=BIT}");
+        sql.SET("role_name = #{record.roleName,jdbcType=CHAR}");
+        sql.SET("description = #{record.description,jdbcType=VARCHAR}");
         sql.SET("flag = #{record.flag,jdbcType=INTEGER}");
         sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
         sql.SET("create_user = #{record.createUser,jdbcType=BIGINT}");
         sql.SET("modify_time = #{record.modifyTime,jdbcType=TIMESTAMP}");
         sql.SET("modify_user = #{record.modifyUser,jdbcType=BIGINT}");
-
-        UserExample example = (UserExample) parameter.get("example");
+        
+        RoleExample example = (RoleExample) parameter.get("example");
         applyWhere(sql, example, true);
         return sql.toString();
     }
 
-    public String updateByPrimaryKeySelective(User record) {
+    public String updateByPrimaryKeySelective(Role record) {
         SQL sql = new SQL();
-        sql.UPDATE("sys_user");
-
-        if (record.getUsername() != null) {
-            sql.SET("username = #{username,jdbcType=CHAR}");
+        sql.UPDATE("sys_role");
+        
+        if (record.getRoleName() != null) {
+            sql.SET("role_name = #{roleName,jdbcType=CHAR}");
         }
-
-        if (record.getFullName() != null) {
-            sql.SET("full_name = #{fullName,jdbcType=CHAR}");
+        
+        if (record.getDescription() != null) {
+            sql.SET("description = #{description,jdbcType=VARCHAR}");
         }
-
-        if (record.getPassword() != null) {
-            sql.SET("password = #{password,jdbcType=CHAR}");
-        }
-
-        if (record.getLoginCount() != null) {
-            sql.SET("login_count = #{loginCount,jdbcType=INTEGER}");
-        }
-
-        if (record.getLoginTime() != null) {
-            sql.SET("login_time = #{loginTime,jdbcType=TIMESTAMP}");
-        }
-
-        if (record.getLastLoginTime() != null) {
-            sql.SET("last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP}");
-        }
-
-        if (record.getEmail() != null) {
-            sql.SET("email = #{email,jdbcType=CHAR}");
-        }
-
-        if (record.getPhone() != null) {
-            sql.SET("phone = #{phone,jdbcType=INTEGER}");
-        }
-
-        if (record.getGroupId() != null) {
-            sql.SET("group_id = #{groupId,jdbcType=BIGINT}");
-        }
-
-        if (record.getEnabled() != null) {
-            sql.SET("enabled = #{enabled,jdbcType=BIT}");
-        }
-
-        if (record.getAccountNonExpired() != null) {
-            sql.SET("account_non_expired = #{accountNonExpired,jdbcType=BIT}");
-        }
-
-        if (record.getAccountNonLocked() != null) {
-            sql.SET("account_non_locked = #{accountNonLocked,jdbcType=BIT}");
-        }
-
-        if (record.getCredentialsNonExpired() != null) {
-            sql.SET("credentials_non_expired = #{credentialsNonExpired,jdbcType=BIT}");
-        }
-
+        
         if (record.getFlag() != null) {
             sql.SET("flag = #{flag,jdbcType=INTEGER}");
         }
-
+        
         if (record.getCreateTime() != null) {
             sql.SET("create_time = #{createTime,jdbcType=TIMESTAMP}");
         }
-
+        
         if (record.getCreateUser() != null) {
             sql.SET("create_user = #{createUser,jdbcType=BIGINT}");
         }
-
+        
         if (record.getModifyTime() != null) {
             sql.SET("modify_time = #{modifyTime,jdbcType=TIMESTAMP}");
         }
-
+        
         if (record.getModifyUser() != null) {
             sql.SET("modify_user = #{modifyUser,jdbcType=BIGINT}");
         }
-
+        
         sql.WHERE("id = #{id,jdbcType=BIGINT}");
-
+        
         return sql.toString();
     }
 
-    protected void applyWhere(SQL sql, UserExample example, boolean includeExamplePhrase) {
+    protected void applyWhere(SQL sql, RoleExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;
         }
-
+        
         String parmPhrase1;
         String parmPhrase1_th;
         String parmPhrase2;
@@ -367,7 +211,7 @@ public class UserSqlProvider {
             parmPhrase3 = "#{oredCriteria[%d].allCriteria[%d].value[%d]}";
             parmPhrase3_th = "#{oredCriteria[%d].allCriteria[%d].value[%d],typeHandler=%s}";
         }
-
+        
         StringBuilder sb = new StringBuilder();
         List<Criteria> oredCriteria = example.getOredCriteria();
         boolean firstCriteria = true;
@@ -379,7 +223,7 @@ public class UserSqlProvider {
                 } else {
                     sb.append(" or ");
                 }
-
+                
                 sb.append('(');
                 List<Criterion> criterions = criteria.getAllCriteria();
                 boolean firstCriterion = true;
@@ -390,14 +234,14 @@ public class UserSqlProvider {
                     } else {
                         sb.append(" and ");
                     }
-
+                    
                     if (criterion.isNoValue()) {
                         sb.append(criterion.getCondition());
                     } else if (criterion.isSingleValue()) {
                         if (criterion.getTypeHandler() == null) {
                             sb.append(String.format(parmPhrase1, criterion.getCondition(), i, j));
                         } else {
-                            sb.append(String.format(parmPhrase1_th, criterion.getCondition(), i, j, criterion.getTypeHandler()));
+                            sb.append(String.format(parmPhrase1_th, criterion.getCondition(), i, j,criterion.getTypeHandler()));
                         }
                     } else if (criterion.isBetweenValue()) {
                         if (criterion.getTypeHandler() == null) {
@@ -428,7 +272,7 @@ public class UserSqlProvider {
                 sb.append(')');
             }
         }
-
+        
         if (sb.length() > 0) {
             sql.WHERE(sb.toString());
         }

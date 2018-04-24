@@ -6,12 +6,12 @@
 <body class="login">
 <div class="logo">
     <a href="index.html">
-        <img src="../static/assets/pages/img/logo-big-white.png" style="height: 17px;" alt=""/> </a>
+        <img th:src="@{/static/assets/pages/img/logo-big-white.png}" style="height: 17px;" alt=""/> </a>
 </div>
 
 <div class="content">
     <!-- 登录表单[==START==] -->
-    <form class="login-form" action="/login" method="post">
+    <form class="login-form" th:action="@{/login}" th:method="post">
         <div class="alert alert-danger display-hide">
             <button class="close" data-close="alert"></button>
             <span> Enter any username and password. </span>
