@@ -12,28 +12,32 @@ public class RoleSqlProvider {
 
     public String countByExample(RoleExample example) {
         SQL sql = new SQL();
-        sql.SELECT("count(*)").FROM("sys_role");
+        sql.SELECT("count(*)").FROM("sec_role");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
     public String deleteByExample(RoleExample example) {
         SQL sql = new SQL();
-        sql.DELETE_FROM("sys_role");
+        sql.DELETE_FROM("sec_role");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
     public String insertSelective(Role record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("sys_role");
+        sql.INSERT_INTO("sec_role");
         
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=BIGINT}");
         }
         
-        if (record.getRoleName() != null) {
-            sql.VALUES("role_name", "#{roleName,jdbcType=CHAR}");
+        if (record.getCode() != null) {
+            sql.VALUES("code", "#{code,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getName() != null) {
+            sql.VALUES("name", "#{name,jdbcType=VARCHAR}");
         }
         
         if (record.getDescription() != null) {
@@ -70,14 +74,15 @@ public class RoleSqlProvider {
         } else {
             sql.SELECT("id");
         }
-        sql.SELECT("role_name");
+        sql.SELECT("code");
+        sql.SELECT("name");
         sql.SELECT("description");
         sql.SELECT("flag");
         sql.SELECT("create_time");
         sql.SELECT("create_user");
         sql.SELECT("modify_time");
         sql.SELECT("modify_user");
-        sql.FROM("sys_role");
+        sql.FROM("sec_role");
         applyWhere(sql, example, false);
         
         if (example != null && example.getOrderByClause() != null) {
@@ -92,14 +97,18 @@ public class RoleSqlProvider {
         RoleExample example = (RoleExample) parameter.get("example");
         
         SQL sql = new SQL();
-        sql.UPDATE("sys_role");
+        sql.UPDATE("sec_role");
         
         if (record.getId() != null) {
             sql.SET("id = #{record.id,jdbcType=BIGINT}");
         }
         
-        if (record.getRoleName() != null) {
-            sql.SET("role_name = #{record.roleName,jdbcType=CHAR}");
+        if (record.getCode() != null) {
+            sql.SET("code = #{record.code,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getName() != null) {
+            sql.SET("name = #{record.name,jdbcType=VARCHAR}");
         }
         
         if (record.getDescription() != null) {
@@ -132,10 +141,11 @@ public class RoleSqlProvider {
 
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
-        sql.UPDATE("sys_role");
+        sql.UPDATE("sec_role");
         
         sql.SET("id = #{record.id,jdbcType=BIGINT}");
-        sql.SET("role_name = #{record.roleName,jdbcType=CHAR}");
+        sql.SET("code = #{record.code,jdbcType=VARCHAR}");
+        sql.SET("name = #{record.name,jdbcType=VARCHAR}");
         sql.SET("description = #{record.description,jdbcType=VARCHAR}");
         sql.SET("flag = #{record.flag,jdbcType=INTEGER}");
         sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
@@ -150,10 +160,14 @@ public class RoleSqlProvider {
 
     public String updateByPrimaryKeySelective(Role record) {
         SQL sql = new SQL();
-        sql.UPDATE("sys_role");
+        sql.UPDATE("sec_role");
         
-        if (record.getRoleName() != null) {
-            sql.SET("role_name = #{roleName,jdbcType=CHAR}");
+        if (record.getCode() != null) {
+            sql.SET("code = #{code,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getName() != null) {
+            sql.SET("name = #{name,jdbcType=VARCHAR}");
         }
         
         if (record.getDescription() != null) {

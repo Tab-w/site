@@ -7,7 +7,9 @@ import java.util.Date;
 public class Authority extends BaseEntity implements Serializable {
     private Long id;
 
-    private String authorityName;
+    private String code;
+
+    private String name;
 
     private String description;
 
@@ -31,12 +33,20 @@ public class Authority extends BaseEntity implements Serializable {
         this.id = id;
     }
 
-    public String getAuthorityName() {
-        return authorityName;
+    public String getCode() {
+        return code;
     }
 
-    public void setAuthorityName(String authorityName) {
-        this.authorityName = authorityName == null ? null : authorityName.trim();
+    public void setCode(String code) {
+        this.code = code == null ? null : code.trim();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public String getDescription() {
@@ -100,7 +110,8 @@ public class Authority extends BaseEntity implements Serializable {
         }
         Authority other = (Authority) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getAuthorityName() == null ? other.getAuthorityName() == null : this.getAuthorityName().equals(other.getAuthorityName()))
+            && (this.getCode() == null ? other.getCode() == null : this.getCode().equals(other.getCode()))
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
             && (this.getFlag() == null ? other.getFlag() == null : this.getFlag().equals(other.getFlag()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
@@ -114,7 +125,8 @@ public class Authority extends BaseEntity implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getAuthorityName() == null) ? 0 : getAuthorityName().hashCode());
+        result = prime * result + ((getCode() == null) ? 0 : getCode().hashCode());
+        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getDescription() == null) ? 0 : getDescription().hashCode());
         result = prime * result + ((getFlag() == null) ? 0 : getFlag().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
@@ -131,7 +143,8 @@ public class Authority extends BaseEntity implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", authorityName=").append(authorityName);
+        sb.append(", code=").append(code);
+        sb.append(", name=").append(name);
         sb.append(", description=").append(description);
         sb.append(", flag=").append(flag);
         sb.append(", createTime=").append(createTime);

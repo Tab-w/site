@@ -49,14 +49,19 @@
             <!--<property name="rootInterface" value=""/>-->
         </javaClientGenerator>
         <!--对应数据库表名 -->
-        <table tableName="sys_user" domainObjectName="User">
-            <!--生成与数据库一致的属性-->
-            <!--<property name="useActualColumnNames" value="true"/>-->
-            <!--插入后返回插入的ID,前提是ID自增的-->
-            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
-        </table>
-        <table tableName="sys_authority" domainObjectName="Authority"/>
-        <table tableName="sys_role" domainObjectName="Role"/>
-        <table tableName="sys_group" domainObjectName="Group"/>
+        <!--<table tableName="" domainObjectName="">-->
+        <!--生成与数据库一致的属性-->
+        <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--插入后返回插入的ID,前提是ID自增的-->
+        <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <table tableName="sec_user" domainObjectName="User"/>
+        <table tableName="sec_user_role" domainObjectName="UserRole"/>
+        <table tableName="sec_role" domainObjectName="Role"/>
+        <table tableName="sec_role_menu" domainObjectName="RoleMenu"/>
+        <table tableName="sec_menu" domainObjectName="Menu"/>
+        <table tableName="sec_menu_authority" domainObjectName="MenuAuthority"/>
+        <table tableName="sec_authority" domainObjectName="Authority"/>
+        <table tableName="sec_group" domainObjectName="Group"/>
     </context>
 </generatorConfiguration>

@@ -4,9 +4,9 @@ import com.eric.site.web.dao.UserMapper;
 import com.eric.site.web.entity.User;
 import com.eric.site.web.entity.UserExample;
 import com.eric.site.web.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -15,17 +15,17 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Resource
     private UserMapper mapper;
 
     @Override
-    public long countByExample(UserExample userExample) {
-        return mapper.countByExample(userExample);
+    public long countByExample(UserExample example) {
+        return mapper.countByExample(example);
     }
 
     @Override
-    public int deleteByExample(UserExample userExample) {
-        return mapper.deleteByExample(userExample);
+    public int deleteByExample(UserExample example) {
+        return mapper.deleteByExample(example);
     }
 
     @Override
@@ -44,8 +44,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> selectByExample(UserExample userExample) {
-        return mapper.selectByExample(userExample);
+    public List<User> selectByExample(UserExample example) {
+        return mapper.selectByExample(example);
     }
 
     @Override
@@ -54,13 +54,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int updateByExampleSelective(User record, UserExample userExample) {
-        return mapper.updateByExampleSelective(record, userExample);
+    public int updateByExampleSelective(User record, UserExample example) {
+        return mapper.updateByExampleSelective(record, example);
     }
 
     @Override
-    public int updateByExample(User record, UserExample userExample) {
-        return mapper.updateByExample(record, userExample);
+    public int updateByExample(User record, UserExample example) {
+        return mapper.updateByExample(record, example);
     }
 
     @Override

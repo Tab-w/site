@@ -1,43 +1,43 @@
 package com.eric.site.core.security;
 
-import com.eric.site.web.dao.RoleMapper;
+import com.eric.site.web.dao.AuthorityMapper;
 import com.eric.site.web.dao.UserMapper;
-import com.eric.site.web.entity.Role;
-import com.eric.site.web.entity.RoleExample;
 import com.eric.site.web.entity.User;
 import com.eric.site.web.entity.UserExample;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @Author: Eric
  */
 public class CustomUserService implements UserDetailsService {
 
-    @Autowired
+    @Resource
     private UserMapper userMapper;
 
-    @Autowired
-    private RoleMapper roleMapper;
+    @Resource
+    private AuthorityMapper authorityMapper;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User userWithRoles = userMapper.selectUserWithRoles(username);
-        if (userWithRoles == null) {
+        UserExample userExample = new UserExample();
+        UserExample.Criteria userExampleCriteria = userExample.createCriteria();
+        userExampleCriteria.andUsernameEqualTo(username);
+        Optional<User> userOptional = userMapper.selectByExample(userExample).stream().findFirst();
+        if (!userOptional.isPresent()) {
             throw new UsernameNotFoundException("用户" + username + "不存在", null);
         }
         List<GrantedAuthority> authorities = new ArrayList<>();
-        userWithRoles.getRoles().forEach(role -> {
-            Role roleWithAuthorities = roleMapper.selectRoleWithAuthorities(role.getId());
-            roleWithAuthorities.getAuthorities().forEach(authority -> authorities.add(new SimpleGrantedAuthority(authority.getAuthorityName())));
-        });
-        return new org.springframework.security.core.userdetails.User(userWithRoles.getUsername(), userWithRoles.getPassword(), userWithRoles.getEnabled(), userWithRoles.getAccountNonExpired(), userWithRoles.getCredentialsNonExpired(), userWithRoles.getAccountNonLocked(), authorities);
+        User user = userOptional.get();
+        authorityMapper.selectAllAuthoritiesByUserId(user.getId()).forEach(authority -> authorities.add(new SimpleGrantedAuthority(authority.getCode())));
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.getEnabled(), user.getAccountNonExpired(), user.getCredentialsNonExpired(), user.getAccountNonLocked(), authorities);
     }
 }

@@ -1,12 +1,12 @@
 package com.eric.site.web.service.Impl;
 
 import com.eric.site.web.dao.AuthorityMapper;
-import com.eric.site.web.entity.AuthorityExample;
 import com.eric.site.web.entity.Authority;
+import com.eric.site.web.entity.AuthorityExample;
 import com.eric.site.web.service.AuthorityService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -15,17 +15,17 @@ import java.util.List;
 @Service
 public class AuthorityServiceImpl implements AuthorityService {
 
-    @Autowired
+    @Resource
     private AuthorityMapper mapper;
 
     @Override
-    public long countByExample(AuthorityExample authorityExample) {
-        return mapper.countByExample(authorityExample);
+    public long countByExample(AuthorityExample example) {
+        return mapper.countByExample(example);
     }
 
     @Override
-    public int deleteByExample(AuthorityExample authorityExample) {
-        return mapper.deleteByExample(authorityExample);
+    public int deleteByExample(AuthorityExample example) {
+        return mapper.deleteByExample(example);
     }
 
     @Override
@@ -44,8 +44,8 @@ public class AuthorityServiceImpl implements AuthorityService {
     }
 
     @Override
-    public List<Authority> selectByExample(AuthorityExample authorityExample) {
-        return mapper.selectByExample(authorityExample);
+    public List<Authority> selectByExample(AuthorityExample example) {
+        return mapper.selectByExample(example);
     }
 
     @Override
@@ -54,13 +54,13 @@ public class AuthorityServiceImpl implements AuthorityService {
     }
 
     @Override
-    public int updateByExampleSelective(Authority record, AuthorityExample authorityExample) {
-        return mapper.updateByExampleSelective(record, authorityExample);
+    public int updateByExampleSelective(Authority record, AuthorityExample example) {
+        return mapper.updateByExampleSelective(record, example);
     }
 
     @Override
-    public int updateByExample(Authority record, AuthorityExample authorityExample) {
-        return mapper.updateByExample(record, authorityExample);
+    public int updateByExample(Authority record, AuthorityExample example) {
+        return mapper.updateByExample(record, example);
     }
 
     @Override

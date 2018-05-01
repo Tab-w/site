@@ -12,28 +12,32 @@ public class AuthoritySqlProvider {
 
     public String countByExample(AuthorityExample example) {
         SQL sql = new SQL();
-        sql.SELECT("count(*)").FROM("sys_authority");
+        sql.SELECT("count(*)").FROM("sec_authority");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
     public String deleteByExample(AuthorityExample example) {
         SQL sql = new SQL();
-        sql.DELETE_FROM("sys_authority");
+        sql.DELETE_FROM("sec_authority");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
     public String insertSelective(Authority record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("sys_authority");
+        sql.INSERT_INTO("sec_authority");
         
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=BIGINT}");
         }
         
-        if (record.getAuthorityName() != null) {
-            sql.VALUES("authority_name", "#{authorityName,jdbcType=CHAR}");
+        if (record.getCode() != null) {
+            sql.VALUES("code", "#{code,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getName() != null) {
+            sql.VALUES("name", "#{name,jdbcType=VARCHAR}");
         }
         
         if (record.getDescription() != null) {
@@ -70,14 +74,15 @@ public class AuthoritySqlProvider {
         } else {
             sql.SELECT("id");
         }
-        sql.SELECT("authority_name");
+        sql.SELECT("code");
+        sql.SELECT("name");
         sql.SELECT("description");
         sql.SELECT("flag");
         sql.SELECT("create_time");
         sql.SELECT("create_user");
         sql.SELECT("modify_time");
         sql.SELECT("modify_user");
-        sql.FROM("sys_authority");
+        sql.FROM("sec_authority");
         applyWhere(sql, example, false);
         
         if (example != null && example.getOrderByClause() != null) {
@@ -92,14 +97,18 @@ public class AuthoritySqlProvider {
         AuthorityExample example = (AuthorityExample) parameter.get("example");
         
         SQL sql = new SQL();
-        sql.UPDATE("sys_authority");
+        sql.UPDATE("sec_authority");
         
         if (record.getId() != null) {
             sql.SET("id = #{record.id,jdbcType=BIGINT}");
         }
         
-        if (record.getAuthorityName() != null) {
-            sql.SET("authority_name = #{record.authorityName,jdbcType=CHAR}");
+        if (record.getCode() != null) {
+            sql.SET("code = #{record.code,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getName() != null) {
+            sql.SET("name = #{record.name,jdbcType=VARCHAR}");
         }
         
         if (record.getDescription() != null) {
@@ -132,10 +141,11 @@ public class AuthoritySqlProvider {
 
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
-        sql.UPDATE("sys_authority");
+        sql.UPDATE("sec_authority");
         
         sql.SET("id = #{record.id,jdbcType=BIGINT}");
-        sql.SET("authority_name = #{record.authorityName,jdbcType=CHAR}");
+        sql.SET("code = #{record.code,jdbcType=VARCHAR}");
+        sql.SET("name = #{record.name,jdbcType=VARCHAR}");
         sql.SET("description = #{record.description,jdbcType=VARCHAR}");
         sql.SET("flag = #{record.flag,jdbcType=INTEGER}");
         sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
@@ -150,10 +160,14 @@ public class AuthoritySqlProvider {
 
     public String updateByPrimaryKeySelective(Authority record) {
         SQL sql = new SQL();
-        sql.UPDATE("sys_authority");
+        sql.UPDATE("sec_authority");
         
-        if (record.getAuthorityName() != null) {
-            sql.SET("authority_name = #{authorityName,jdbcType=CHAR}");
+        if (record.getCode() != null) {
+            sql.SET("code = #{code,jdbcType=VARCHAR}");
+        }
+        
+        if (record.getName() != null) {
+            sql.SET("name = #{name,jdbcType=VARCHAR}");
         }
         
         if (record.getDescription() != null) {
