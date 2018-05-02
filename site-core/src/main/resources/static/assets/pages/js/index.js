@@ -1,74 +1,66 @@
 $(function () {
-    var table = $('#sample_1');
+    var table = $('#dataTable');
 
-// begin first table
     table.dataTable({
 
-        // Internationalisation. For more info refer to http://datatables.net/manual/i18n
         "language": {
-            "aria": {
-                "sortAscending": ": activate to sort column ascending",
-                "sortDescending": ": activate to sort column descending"
-            },
-            "emptyTable": "No data available in table",
-            "info": "Showing _START_ to _END_ of _TOTAL_ records",
-            "infoEmpty": "No records found",
-            "infoFiltered": "(filtered1 from _MAX_ total records)",
-            "lengthMenu": "Show _MENU_",
-            "search": "Search:",
-            "zeroRecords": "No matching records found",
+            "processing": "努力加载中...",
+            "lengthMenu": "_MENU_ 条记录",
+            "zeroRecords": "没有找到记录",
+            "info": "第 _PAGE_ 页 (总共 _PAGES_ 页)",
+            "infoEmpty": "无记录",
+            "infoFiltered": "(从 _MAX_ 条记录过滤)",
             "paginate": {
-                "previous": "Prev",
-                "next": "Next",
-                "last": "Last",
-                "first": "First"
+                "previous": "上一页",
+                "next": "上一页",
+                "last": "尾页",
+                "first": "首页"
             }
         },
 
-        // Or you can use remote translation file
-        //"language": {
-        //   url: '//cdn.datatables.net/plug-ins/3cfcc339e89/i18n/Portuguese.json'
-        //},
-
-        // Uncomment below line("dom" parameter) to fix the dropdown overflow issue in the datatable cells. The default datatable layout
-        // setup uses scrollable div(table-scrollable) with overflow:auto to enable vertical scroll(see: assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js).
-        // So when dropdowns used the scrollable div should be removed.
-        //"dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
-
-        "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
+        // 定义 dataTable 的组件元素的显示和显示顺序
+        // l - length changing input control
+        // f - filtering input
+        // t - table!
+        // i - table information summary
+        // p - pagination control
+        // r - processing display element
+        "dom": "<'row'<'col-md-6 col-sm-12'l>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
 
         "lengthMenu": [
-            [5, 15, 20, -1],
-            [5, 15, 20, "All"] // change per page values here
+            [10, 30, 50, 100],
+            [10, 30, 50, 100]
         ],
-        // set the initial value
-        "pageLength": 5,
+        "pageLength": 10,
         "pagingType": "bootstrap_full_number",
-        "columnDefs": [
-            {  // set default column settings
-                'orderable': false,
-                'targets': [0]
-            },
-            {
-                "searchable": false,
-                "targets": [0]
-            },
-            {
-                "className": "dt-right",
-                //"targets": [2]
-            }
-        ],
-        "order": [
-            [1, "asc"]
-        ] // set first column as a default sort by asc
+
+        // 保存状态 - 在页面重新加载的时候恢复状态（页码等内容）
+        "stateSave": false,
+
+        //页面内搜索
+        "searching": false,
+        //排序
+        "ordering": false
+        // "columnDefs": [
+        //     {
+        //         'orderable': false,
+        //         'targets': [0]
+        //     },
+        //     {
+        //         "className": "dt-left",
+        //         "targets": [1]
+        //     }
+        // ],
+        // "order": [
+        //     [1, "asc"]
+        // ]
     });
 
-    var tableWrapper = jQuery('#sample_1_wrapper');
 
     table.find('.group-checkable').change(function () {
-        var set = jQuery(this).attr("data-set");
-        var checked = jQuery(this).is(":checked");
-        jQuery(set).each(function () {
+        var set = $(this).attr("data-set");
+        var checked = $(this).is(":checked");
+        $(set).each(function () {
             if (checked) {
                 $(this).prop("checked", true);
                 $(this).parents('tr').addClass("active");
@@ -81,5 +73,12 @@ $(function () {
 
     table.on('change', 'tbody tr .checkboxes', function () {
         $(this).parents('tr').toggleClass("active");
+        var set = table.find('.group-checkable').attr("data-set");
+        $(set).each(function () {
+            if (!$(this).prop("checked")) {
+                table.find('.group-checkable').prop("checked", false);
+                return false;
+            }
+        });
     });
 });
