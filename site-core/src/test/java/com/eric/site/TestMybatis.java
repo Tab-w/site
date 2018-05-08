@@ -1,7 +1,6 @@
 package com.eric.site;
 
-import com.eric.site.core.utils.SnowflakeIdWorker;
-import com.eric.site.web.dao.UserMapper;
+import com.eric.site.config.snowflake.SnowflakeIdWorker;
 import com.eric.site.web.entity.User;
 import com.eric.site.web.entity.UserExample;
 import com.eric.site.web.service.Impl.UserServiceImpl;

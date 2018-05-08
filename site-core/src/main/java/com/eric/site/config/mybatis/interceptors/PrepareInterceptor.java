@@ -1,6 +1,6 @@
 package com.eric.site.config.mybatis.interceptors;
 
-import com.eric.site.core.utils.SnowflakeIdWorker;
+import com.eric.site.config.snowflake.SnowflakeIdWorker;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.mapping.SqlCommandType;

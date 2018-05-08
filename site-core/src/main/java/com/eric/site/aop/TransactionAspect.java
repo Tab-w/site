@@ -1,4 +1,4 @@
-package com.eric.site.core.aop;
+package com.eric.site.aop;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.aop.Advisor;

@@ -1,6 +1,5 @@
-package com.eric.site.config;
+package com.eric.site.config.snowflake;
 
-import com.eric.site.core.utils.SnowflakeIdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

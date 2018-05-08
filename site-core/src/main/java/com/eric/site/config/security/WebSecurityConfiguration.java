@@ -1,6 +1,5 @@
 package com.eric.site.config.security;
 
-import com.eric.site.core.security.CustomUserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
