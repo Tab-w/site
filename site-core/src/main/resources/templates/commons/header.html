@@ -2,32 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="header(title,cssPaths)">
 
-    <title th:text="${title}">Header</title>
-
+    <title th:text="${title}"></title>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-
-    <link rel="shortcut icon" th:href="@{/favicon.ico}" href="../../favicon.ico"/>
+    <link rel="shortcut icon" th:href="@{/favicon.ico}"/>
 
     <!-- 全局强制样式[==START==] -->
-    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/global/font/font.css}" href="../../static/assets/global/font/font.css"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/global/plugins/font-awesome/css/font-awesome.min.css}" href="../../static/assets/global/plugins/font-awesome/css/font-awesome.min.css"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/global/plugins/simple-line-icons/simple-line-icons.min.css}" href="../../static/assets/global/plugins/simple-line-icons/simple-line-icons.min.css"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/global/plugins/bootstrap/css/bootstrap.min.css}" href="../../static/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css}" href="../../static/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/global/css/common.css}" href="../../static/assets/global/css/common.css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/global/font/font.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/global/plugins/font-awesome/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/global/plugins/simple-line-icons/simple-line-icons.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/global/plugins/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/global/css/common.css}"/>
     <!-- 全局强制样式[==END==] -->
 
     <!-- 全局主题样式[==START==] -->
-    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/global/css/components.min.css}" href="../../static/assets/global/css/components.min.css" id="style_components"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/global/css/plugins.min.css}" href="../../static/assets/global/css/plugins.min.css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/global/css/components.min.css}" id="style_components"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/global/css/plugins.min.css}"/>
     <!-- 全局主题样式[==END==] -->
 
     <!-- 主题布局样式[==START==] -->
-    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/layout/css/layout.min.css}" href="../../static/assets/layout/css/layout.min.css"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/layout/css/themes/default.min.css}" href="../../static/assets/layout/css/themes/default.min.css" id="style_color"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/layout/css/custom.min.css}" href="../../static/assets/layout/css/custom.min.css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/layout/css/layout.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/layout/css/themes/default.min.css}" id="style_color"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/assets/layout/css/custom.min.css}"/>
     <!-- 主题布局样式[==END==] -->
 
     <!-- 页面级插件样式[==START==] -->
