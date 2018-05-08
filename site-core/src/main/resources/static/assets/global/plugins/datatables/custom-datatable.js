@@ -1,6 +1,11 @@
 $.extend({
     DataTable: function (options) {
+
         var table = options.table;
+
+        /**
+         * 初始化
+         */
         table.dataTable({
             "ajax": {
                 "url": options.url,
@@ -8,9 +13,10 @@ $.extend({
                 "type": "post"
             },
 
-            "deferRender": true,
-
             "columns": options.columns,
+
+            //延迟渲染
+            "deferRender": true,
 
             "processing": true,
 
@@ -58,6 +64,25 @@ $.extend({
             "dom": "<'row'<'col-md-6 col-sm-12'l>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>"
         });
 
+        /**
+         * 根据参数重新加载table
+         * @param url
+         * @param type
+         * @param data
+         */
+        table.redirect = function (url, type, data) {
+            var settings = table.fnSettings();
+            settings.ajax = {
+                "url": url,
+                "type": type,
+                "data": data
+            };
+            table.fnDraw();
+        };
+
+        /**
+         * 全选checkbox改变
+         */
         table.find('.group-checkable').change(function () {
             var set = $(this).attr("data-set");
             var checked = $(this).is(":checked");
@@ -72,6 +97,9 @@ $.extend({
             });
         });
 
+        /**
+         * 每行的checkbox改变
+         */
         table.on('change', 'tbody tr .checkboxes', function () {
             $(this).parents('tr').toggleClass("active");
             var set = table.find('.group-checkable').attr("data-set");
@@ -87,8 +115,15 @@ $.extend({
                 table.find('.group-checkable').prop("checked", false);
             }
         });
+
         return table;
     },
+
+    /**
+     * 生成checkbox
+     * @param data
+     * @returns {string}
+     */
     generateCheckbox: function (data) {
         var checkBox = "";
         checkBox += "<label class=\"mt-checkbox mt-checkbox-single mt-checkbox-outline\">";

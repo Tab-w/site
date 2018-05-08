@@ -22,12 +22,6 @@ $(function () {
     });
 
     $("#sample_editable_1_new").on("click", function () {
-        var oSettings = table.fnSettings();
-        oSettings.ajax = {
-            "url": "/user/list",
-            "type": "post",
-            "data": {id: "1"}
-        };
-        table.fnDraw();
+        table.redirect("/user/list", "post", {id: "9"});
     });
 });

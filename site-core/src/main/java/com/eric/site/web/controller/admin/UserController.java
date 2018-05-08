@@ -36,7 +36,7 @@ public class UserController extends BaseController {
     public String list(DataTableParameter dataTableParameter, User user) {
         RowBounds rowBounds = new RowBounds(dataTableParameter.getStart(), dataTableParameter.getLength());
         UserExample userExample = new UserExample();
-        Optional.ofNullable(user.getId()).ifPresent(aLong -> userExample.createCriteria().andIdGreaterThan(5L));
+        Optional.ofNullable(user.getId()).ifPresent(aLong -> userExample.createCriteria().andIdGreaterThan(user.getId()));
         List<User> users = userService.selectByExampleWithRowbounds(userExample, rowBounds);
         long count = userService.countByExample(userExample);
         Page<User> page = new Page<>(users, dataTableParameter.getDraw(), count, count);
