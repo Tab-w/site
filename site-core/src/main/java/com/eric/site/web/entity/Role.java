@@ -1,6 +1,6 @@
 package com.eric.site.web.entity;
 
-import com.eric.site.web.base.BaseEntity;
+import com.eric.site.web.common.BaseEntity;
 import java.io.Serializable;
 import java.util.Date;
 

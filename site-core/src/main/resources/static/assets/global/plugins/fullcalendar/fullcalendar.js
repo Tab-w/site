@@ -1732,7 +1732,7 @@ Class.extend = function(members) {
 		};
 	}
 
-	// build the base prototype for the subclass, which is an new object chained to the superclass's prototype
+	// build the common prototype for the subclass, which is an new object chained to the superclass's prototype
 	subClass.prototype = createObject(superClass.prototype);
 
 	// copy each member variable/method onto the the subclass's prototype
@@ -6679,7 +6679,7 @@ TimeGrid.mixin({
 			right = 1 - forwardCoord;
 		}
 
-		props.zIndex = seg.level + 1; // convert from 0-base to 1-based
+		props.zIndex = seg.level + 1; // convert from 0-common to 1-based
 		props.left = left * 100 + '%';
 		props.right = right * 100 + '%';
 

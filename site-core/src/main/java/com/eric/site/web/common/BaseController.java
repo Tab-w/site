@@ -1,8 +1,8 @@
-package com.eric.site.web.base;
+package com.eric.site.web.common;
 
-import com.eric.site.web.util.DateEditor;
-import com.eric.site.web.util.DoubleEditor;
-import com.eric.site.web.util.FloatEditor;
+import com.eric.site.web.utils.DateEditor;
+import com.eric.site.web.utils.DoubleEditor;
+import com.eric.site.web.utils.FloatEditor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

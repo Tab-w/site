@@ -1,4 +1,4 @@
-package com.eric.site.web.util;
+package com.eric.site.web.utils;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.propertyeditors.PropertiesEditor;

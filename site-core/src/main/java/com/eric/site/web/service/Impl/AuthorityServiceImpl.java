@@ -4,6 +4,7 @@ import com.eric.site.web.dao.AuthorityMapper;
 import com.eric.site.web.entity.Authority;
 import com.eric.site.web.entity.AuthorityExample;
 import com.eric.site.web.service.AuthorityService;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -41,6 +42,11 @@ public class AuthorityServiceImpl implements AuthorityService {
     @Override
     public int insertSelective(Authority record) {
         return mapper.insertSelective(record);
+    }
+
+    @Override
+    public List<Authority> selectByExampleWithRowbounds(AuthorityExample example, RowBounds rowBounds) {
+        return mapper.selectByExampleWithRowbounds(example, rowBounds);
     }
 
     @Override

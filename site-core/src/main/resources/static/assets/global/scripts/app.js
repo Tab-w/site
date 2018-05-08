@@ -548,7 +548,7 @@ var App = function() {
                     $(this).css('min-height', '');
                 }
 
-                var height_ = (mode == 'base-height' ? $(this).outerHeight() : $(this).outerHeight(true));
+                var height_ = (mode == 'common-height' ? $(this).outerHeight() : $(this).outerHeight(true));
                 if (height_ > height) {
                     height = height_;
                 }

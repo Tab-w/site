@@ -14,6 +14,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.type.JdbcType;
 
 public interface RoleMenuMapper {
@@ -43,6 +44,19 @@ public interface RoleMenuMapper {
 
     @InsertProvider(type=RoleMenuSqlProvider.class, method="insertSelective")
     int insertSelective(RoleMenu record);
+
+    @SelectProvider(type=RoleMenuSqlProvider.class, method="selectByExample")
+    @Results({
+        @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
+        @Result(column="role_id", property="roleId", jdbcType=JdbcType.BIGINT),
+        @Result(column="menu_id", property="menuId", jdbcType=JdbcType.BIGINT),
+        @Result(column="flag", property="flag", jdbcType=JdbcType.INTEGER),
+        @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="create_user", property="createUser", jdbcType=JdbcType.BIGINT),
+        @Result(column="modify_time", property="modifyTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="modify_user", property="modifyUser", jdbcType=JdbcType.BIGINT)
+    })
+    List<RoleMenu> selectByExampleWithRowbounds(RoleMenuExample example, RowBounds rowBounds);
 
     @SelectProvider(type=RoleMenuSqlProvider.class, method="selectByExample")
     @Results({

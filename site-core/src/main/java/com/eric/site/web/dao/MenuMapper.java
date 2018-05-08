@@ -14,6 +14,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.type.JdbcType;
 
 public interface MenuMapper {
@@ -45,6 +46,22 @@ public interface MenuMapper {
 
     @InsertProvider(type=MenuSqlProvider.class, method="insertSelective")
     int insertSelective(Menu record);
+
+    @SelectProvider(type=MenuSqlProvider.class, method="selectByExample")
+    @Results({
+        @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
+        @Result(column="parent_id", property="parentId", jdbcType=JdbcType.BIGINT),
+        @Result(column="path", property="path", jdbcType=JdbcType.VARCHAR),
+        @Result(column="code", property="code", jdbcType=JdbcType.VARCHAR),
+        @Result(column="name", property="name", jdbcType=JdbcType.VARCHAR),
+        @Result(column="description", property="description", jdbcType=JdbcType.VARCHAR),
+        @Result(column="flag", property="flag", jdbcType=JdbcType.INTEGER),
+        @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="create_user", property="createUser", jdbcType=JdbcType.BIGINT),
+        @Result(column="modify_time", property="modifyTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="modify_user", property="modifyUser", jdbcType=JdbcType.BIGINT)
+    })
+    List<Menu> selectByExampleWithRowbounds(MenuExample example, RowBounds rowBounds);
 
     @SelectProvider(type=MenuSqlProvider.class, method="selectByExample")
     @Results({

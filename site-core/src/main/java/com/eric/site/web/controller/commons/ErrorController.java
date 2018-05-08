@@ -1,6 +1,6 @@
 package com.eric.site.web.controller.commons;
 
-import com.eric.site.web.base.BaseController;
+import com.eric.site.web.common.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 

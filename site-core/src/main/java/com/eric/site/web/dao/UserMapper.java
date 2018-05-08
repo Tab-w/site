@@ -14,6 +14,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.type.JdbcType;
 
 public interface UserMapper {
@@ -53,6 +54,30 @@ public interface UserMapper {
 
     @InsertProvider(type=UserSqlProvider.class, method="insertSelective")
     int insertSelective(User record);
+
+    @SelectProvider(type=UserSqlProvider.class, method="selectByExample")
+    @Results({
+        @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
+        @Result(column="username", property="username", jdbcType=JdbcType.VARCHAR),
+        @Result(column="password", property="password", jdbcType=JdbcType.VARCHAR),
+        @Result(column="login_count", property="loginCount", jdbcType=JdbcType.INTEGER),
+        @Result(column="login_time", property="loginTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="last_login_time", property="lastLoginTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="full_name", property="fullName", jdbcType=JdbcType.CHAR),
+        @Result(column="email", property="email", jdbcType=JdbcType.VARCHAR),
+        @Result(column="phone", property="phone", jdbcType=JdbcType.INTEGER),
+        @Result(column="group_id", property="groupId", jdbcType=JdbcType.BIGINT),
+        @Result(column="enabled", property="enabled", jdbcType=JdbcType.BIT),
+        @Result(column="account_non_expired", property="accountNonExpired", jdbcType=JdbcType.BIT),
+        @Result(column="account_non_locked", property="accountNonLocked", jdbcType=JdbcType.BIT),
+        @Result(column="credentials_non_expired", property="credentialsNonExpired", jdbcType=JdbcType.BIT),
+        @Result(column="flag", property="flag", jdbcType=JdbcType.INTEGER),
+        @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="create_user", property="createUser", jdbcType=JdbcType.BIGINT),
+        @Result(column="modify_time", property="modifyTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="modify_user", property="modifyUser", jdbcType=JdbcType.BIGINT)
+    })
+    List<User> selectByExampleWithRowbounds(UserExample example, RowBounds rowBounds);
 
     @SelectProvider(type=UserSqlProvider.class, method="selectByExample")
     @Results({

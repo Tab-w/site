@@ -4,6 +4,7 @@ import com.eric.site.web.dao.RoleMapper;
 import com.eric.site.web.entity.Role;
 import com.eric.site.web.entity.RoleExample;
 import com.eric.site.web.service.RoleService;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -41,6 +42,11 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public int insertSelective(Role record) {
         return mapper.insertSelective(record);
+    }
+
+    @Override
+    public List<Role> selectByExampleWithRowbounds(RoleExample example, RowBounds rowBounds) {
+        return mapper.selectByExampleWithRowbounds(example, rowBounds);
     }
 
     @Override

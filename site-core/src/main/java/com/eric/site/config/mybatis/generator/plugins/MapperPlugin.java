@@ -43,7 +43,7 @@ public class MapperPlugin extends PluginAdapter {
                     if (unit instanceof Interface) {
                         /*为文件添加扩展的方法*/
                         //添加import项
-                        unit.addImportedType(new FullyQualifiedJavaType("java.util.List"));
+                        unit.addImportedType(new FullyQualifiedJavaType("java.utils.List"));
                         //新建一个方法
                         Method method = new Method();
                         //设置访问权限

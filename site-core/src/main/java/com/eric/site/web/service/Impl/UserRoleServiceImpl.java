@@ -4,6 +4,7 @@ import com.eric.site.web.dao.UserRoleMapper;
 import com.eric.site.web.entity.UserRole;
 import com.eric.site.web.entity.UserRoleExample;
 import com.eric.site.web.service.UserRoleService;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -41,6 +42,11 @@ public class UserRoleServiceImpl implements UserRoleService {
     @Override
     public int insertSelective(UserRole record) {
         return mapper.insertSelective(record);
+    }
+
+    @Override
+    public List<UserRole> selectByExampleWithRowbounds(UserRoleExample example, RowBounds rowBounds) {
+        return mapper.selectByExampleWithRowbounds(example, rowBounds);
     }
 
     @Override

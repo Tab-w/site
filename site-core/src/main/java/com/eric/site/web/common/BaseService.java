@@ -1,5 +1,6 @@
-package com.eric.site.web.base;
+package com.eric.site.web.common;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +22,8 @@ public interface BaseService<Entity extends BaseEntity, EntityExample> {
     int insert(Entity record);
 
     int insertSelective(Entity record);
+
+    List<Entity> selectByExampleWithRowbounds(EntityExample example, RowBounds rowBounds);
 
     List<Entity> selectByExample(EntityExample example);
 

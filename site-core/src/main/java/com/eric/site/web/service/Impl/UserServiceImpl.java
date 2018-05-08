@@ -4,6 +4,7 @@ import com.eric.site.web.dao.UserMapper;
 import com.eric.site.web.entity.User;
 import com.eric.site.web.entity.UserExample;
 import com.eric.site.web.service.UserService;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -41,6 +42,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public int insertSelective(User record) {
         return mapper.insertSelective(record);
+    }
+
+    @Override
+    public List<User> selectByExampleWithRowbounds(UserExample example, RowBounds rowBounds) {
+        return mapper.selectByExampleWithRowbounds(example, rowBounds);
     }
 
     @Override

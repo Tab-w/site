@@ -1,6 +1,6 @@
 package com.eric.site.web.controller.admin;
 
-import com.eric.site.web.base.BaseController;
+import com.eric.site.web.common.BaseController;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

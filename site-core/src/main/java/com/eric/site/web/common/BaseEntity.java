@@ -1,4 +1,4 @@
-package com.eric.site.web.base;
+package com.eric.site.web.common;
 
 /**
  * @Author: Eric

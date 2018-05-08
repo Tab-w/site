@@ -1,19 +1,14 @@
 package com.eric.site.web.controller.commons;
 
-import com.eric.site.web.base.BaseController;
+import com.eric.site.web.common.BaseController;
 import com.eric.site.web.entity.User;
 import com.eric.site.web.entity.UserExample;
 import com.eric.site.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**

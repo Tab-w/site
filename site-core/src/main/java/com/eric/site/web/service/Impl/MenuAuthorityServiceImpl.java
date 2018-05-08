@@ -4,6 +4,7 @@ import com.eric.site.web.dao.MenuAuthorityMapper;
 import com.eric.site.web.entity.MenuAuthority;
 import com.eric.site.web.entity.MenuAuthorityExample;
 import com.eric.site.web.service.MenuAuthorityService;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -41,6 +42,11 @@ public class MenuAuthorityServiceImpl implements MenuAuthorityService {
     @Override
     public int insertSelective(MenuAuthority record) {
         return mapper.insertSelective(record);
+    }
+
+    @Override
+    public List<MenuAuthority> selectByExampleWithRowbounds(MenuAuthorityExample example, RowBounds rowBounds) {
+        return mapper.selectByExampleWithRowbounds(example, rowBounds);
     }
 
     @Override

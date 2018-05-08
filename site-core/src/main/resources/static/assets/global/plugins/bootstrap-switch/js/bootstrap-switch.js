@@ -47,7 +47,7 @@
           labelText: this.$element.data("label-text"),
           handleWidth: this.$element.data("handle-width"),
           labelWidth: this.$element.data("label-width"),
-          baseClass: this.$element.data("base-class"),
+          baseClass: this.$element.data("common-class"),
           wrapperClass: this.$element.data("wrapper-class")
         }, options);
         this.$wrapper = $("<div>", {

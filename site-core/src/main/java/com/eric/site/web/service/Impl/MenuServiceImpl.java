@@ -4,6 +4,7 @@ import com.eric.site.web.dao.MenuMapper;
 import com.eric.site.web.entity.Menu;
 import com.eric.site.web.entity.MenuExample;
 import com.eric.site.web.service.MenuService;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -41,6 +42,11 @@ public class MenuServiceImpl implements MenuService {
     @Override
     public int insertSelective(Menu record) {
         return mapper.insertSelective(record);
+    }
+
+    @Override
+    public List<Menu> selectByExampleWithRowbounds(MenuExample example, RowBounds rowBounds) {
+        return mapper.selectByExampleWithRowbounds(example, rowBounds);
     }
 
     @Override

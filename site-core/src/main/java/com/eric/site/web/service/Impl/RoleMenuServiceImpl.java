@@ -4,6 +4,7 @@ import com.eric.site.web.dao.RoleMenuMapper;
 import com.eric.site.web.entity.RoleMenu;
 import com.eric.site.web.entity.RoleMenuExample;
 import com.eric.site.web.service.RoleMenuService;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -41,6 +42,11 @@ public class RoleMenuServiceImpl implements RoleMenuService {
     @Override
     public int insertSelective(RoleMenu record) {
         return mapper.insertSelective(record);
+    }
+
+    @Override
+    public List<RoleMenu> selectByExampleWithRowbounds(RoleMenuExample example, RowBounds rowBounds) {
+        return mapper.selectByExampleWithRowbounds(example, rowBounds);
     }
 
     @Override

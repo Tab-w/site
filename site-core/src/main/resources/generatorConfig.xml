@@ -15,6 +15,9 @@
         <!-- 该插件给实体类添加toString() -->
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
 
+        <!-- 生成一个新的selectByExample方法,接受一个RowBounds参数 -->
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+
         <!-- 自定义方法 -->
         <plugin type="com.eric.site.config.mybatis.generator.plugins.MapperPlugin">
             <property name="targetProject" value="src/main/java"/>
@@ -29,11 +32,12 @@
         <!--数据库连接信息 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://60.205.205.204:3306/site?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false" userId="root" password="727306Wxy~">
         </jdbcConnection>
+
         <!--生成的entity 包路径 -->
         <javaModelGenerator targetPackage="com.eric.site.web.entity" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
-            <property name="rootClass" value="com.eric.site.web.base.BaseEntity"/>
+            <property name="rootClass" value="com.eric.site.web.common.BaseEntity"/>
         </javaModelGenerator>
 
         <!--生成xml mapper文件 路径 -->
