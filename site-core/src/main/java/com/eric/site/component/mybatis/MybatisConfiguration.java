@@ -1,7 +1,7 @@
-package com.eric.site.config.mybatis;
+package com.eric.site.component.mybatis;
 
-import com.eric.site.config.druid.DruidConfiguration;
-import com.eric.site.config.mybatis.interceptors.PrepareInterceptor;
+import com.eric.site.component.druid.DruidConfiguration;
+import com.eric.site.component.mybatis.interceptors.PrepareInterceptor;
 import com.github.pagehelper.PageHelper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;

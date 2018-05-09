@@ -1,6 +1,6 @@
-package com.eric.site.config.mybatis.generator.plugins;
+package com.eric.site.component.mybatis.generator.plugins;
 
-import com.eric.site.config.mybatis.generator.AnnotatedSelectAllMethodGenerator;
+import com.eric.site.component.mybatis.generator.AnnotatedSelectAllMethodGenerator;
 import org.mybatis.generator.api.GeneratedJavaFile;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;

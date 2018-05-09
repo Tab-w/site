@@ -1,4 +1,4 @@
-package com.eric.site.config.security;
+package com.eric.site.component.security;
 
 import com.eric.site.web.dao.AuthorityMapper;
 import com.eric.site.web.dao.UserMapper;

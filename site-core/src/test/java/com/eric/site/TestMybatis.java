@@ -1,6 +1,6 @@
 package com.eric.site;
 
-import com.eric.site.config.snowflake.SnowflakeIdWorker;
+import com.eric.site.component.snowflake.SnowflakeIdWorker;
 import com.eric.site.web.entity.User;
 import com.eric.site.web.entity.UserExample;
 import com.eric.site.web.service.Impl.UserServiceImpl;

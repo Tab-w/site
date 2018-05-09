@@ -1,4 +1,4 @@
-package com.eric.site.config.mybatis.generator;
+package com.eric.site.component.mybatis.generator;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;

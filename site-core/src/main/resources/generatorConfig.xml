@@ -19,7 +19,7 @@
         <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
 
         <!-- 自定义方法 -->
-        <plugin type="com.eric.site.config.mybatis.generator.plugins.MapperPlugin">
+        <plugin type="com.eric.site.component.mybatis.generator.plugins.MapperPlugin">
             <property name="targetProject" value="src/main/java"/>
             <property name="targetPackage" value="com.eric.site.web.dao"/>
         </plugin>

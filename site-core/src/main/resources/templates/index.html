@@ -4,7 +4,8 @@
 <head th:replace="/commons/header::header ('Index',
 '/static/assets/global/plugins/datatables/datatables.min.css,'+
 '/static/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css,'+
-'/static/assets/pages/css/index.css')">
+'/static/assets/pages/css/index.css'
+)">
 
     <title>Index</title>
     <meta charset="UTF-8"/>
@@ -38,6 +39,7 @@
     <link rel="stylesheet" type="text/css" href="../static/assets/pages/css/index.css"/>
     <!-- 页面级插件样式[==END==] -->
 </head>
+
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
 
 <div th:replace="/commons/top::top">
@@ -401,15 +403,6 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>
-                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline"> <input type="checkbox" class="checkboxes" value="1"> <span></span></label>
-                                    </td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td><span class="label label-sm label-success"> Approved </span></td>
-                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -428,9 +421,7 @@
     <div class="page-footer">
         <div class="page-footer-inner"> 2016 &copy; Metronic Theme By
             <a target="_blank" href="http://keenthemes.com">Keenthemes</a> &nbsp;|&nbsp;
-            <a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes"
-               title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank">Purchase
-                Metronic!</a>
+            <a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank">Purchase Metronic!</a>
             <div class="scroll-to-top">
                 <i class="icon-arrow-up"></i>
             </div>
@@ -493,7 +484,8 @@
 '/static/assets/global/plugins/datatables/datatables.min.js,'+
 '/static/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js,'+
 '/static/assets/global/plugins/datatables/custom-datatable.js,'+
-'/static/assets/pages/js/index.js')">
+'/static/assets/pages/js/index.js'
+)">
 
     <!--[if lt IE 9]>
     <script type="text/javascript" src="../static/assets/global/plugins/respond.min.js"></script>

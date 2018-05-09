@@ -1,4 +1,4 @@
-package com.eric.site.config.snowflake;
+package com.eric.site.component.snowflake;
 
 /**
  * Twitter_Snowflake<br>

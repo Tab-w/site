@@ -1,4 +1,4 @@
-package com.eric.site.config.druid;
+package com.eric.site.component.druid;
 
 import com.alibaba.druid.support.http.WebStatFilter;
 
